@@ -12,7 +12,6 @@ Item {
         buttonColorHover: "#136ec1"
         buttonColor: "#0085FF"
 
-
         imageUrl: imageUrl_blue
 
         buttonText: buttonText_blue
