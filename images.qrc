@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Images/arrow_icon.png</file>
+        <file>Images/chart_icon.png</file>
+        <file>Images/close_icon.png</file>
+        <file>Images/save_icon.png</file>
+        <file>Images/write_icon.png</file>
+    </qresource>
+</RCC>
