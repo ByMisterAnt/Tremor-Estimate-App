@@ -44,16 +44,15 @@ Item {
 
 
             Image{
+
                 id: imageIcon
-                source: imageUrl
-
-                anchors.verticalCenter: parent.verticalCenter
-                //anchors.left: parent.left
-                //anchors.leftMargin: 10
-
 
                 width: 47
                 height: 47
+
+                source: imageUrl
+
+                anchors.verticalCenter: parent.verticalCenter
             }
 
 
@@ -61,13 +60,9 @@ Item {
                 id: btnText
 
                 anchors.verticalCenter: parent.verticalCenter
-                //anchors.left: imageIcon.right
-
 
                 text: buttonText
-
                 font.family: "Roboto"
-
                 color: buttonTextColor
                 font { bold: true; pixelSize: 22 }
             }
@@ -84,9 +79,3 @@ Item {
         }
     }
 }
-
-/*##^##
-Designer {
-    D{i:0;formeditorZoom:2}
-}
-##^##*/
