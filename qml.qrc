@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MenuButton.qml</file>
+        <file>CustomList.qml</file>
+        <file>409-tool-outline.gif</file>
+        <file>CustomGif.qml</file>
+    </qresource>
+</RCC>
