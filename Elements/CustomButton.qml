@@ -10,10 +10,13 @@ Item {
     property color buttonColorHover: buttonColorHover
     property color buttonColor: buttonColor
     property url imageUrl: imageUrl
+    readonly property alias pressed: btnMouse.pressed
 
     height: 70
     width: 200
 
+
+    signal clicked()
 
     DropShadow{
         anchors.fill: btnRectangle
