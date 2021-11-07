@@ -4,5 +4,7 @@
         <file>Elements/CustomButton.qml</file>
         <file>Elements/GreenBtn.qml</file>
         <file>Elements/BlueBtn.qml</file>
+        <file>UI/ChartWindow/ChartScreen.qml</file>
+        <file>UI/MainWindow/MainScreen.qml</file>
     </qresource>
 </RCC>
