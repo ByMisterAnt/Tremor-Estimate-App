@@ -1,5 +1,5 @@
 import QtQuick 2.15
-import QtQuick.Controls 1.1 as Controls
+import QtQuick.Controls 1.1
 import  "../../Elements"
 
 Item {
@@ -13,7 +13,6 @@ Item {
         y: 20
 
         imageUrl_blue: "qrc:/Images/save_icon.png"
-
         buttonText_blue: "Сохранить"
 
     }
@@ -25,7 +24,6 @@ Item {
         y: 20
 
         imageUrl_blue: "qrc:/Images/close_icon.png"
-
         buttonText_blue: "Очистить"
     }
 
@@ -36,7 +34,6 @@ Item {
         y: 20
 
         imageUrl_blue: "qrc:/Images/write_icon.png"
-
         buttonText_blue: "Записать"
 
     }
@@ -48,7 +45,6 @@ Item {
         y: 20
 
         imageUrl_green: "qrc:/Images/arrow_icon.png"
-
         buttonText_green: "В начало"
     }
 }

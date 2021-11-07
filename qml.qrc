@@ -6,5 +6,6 @@
         <file>Elements/BlueBtn.qml</file>
         <file>UI/ChartWindow/ChartScreen.qml</file>
         <file>UI/MainWindow/MainScreen.qml</file>
+        <file>UI/CameraWindow/CameraScreen.qml</file>
     </qresource>
 </RCC>
