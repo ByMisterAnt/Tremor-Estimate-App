@@ -1,4 +1,4 @@
-QT += quick
+QT += core gui printsupport quick widgets
 
 CONFIG += c++11
 
