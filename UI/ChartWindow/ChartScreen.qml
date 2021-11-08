@@ -1,70 +1,183 @@
 import QtQuick 2.15
 import QtQuick.Controls 1.1
+import QtQuick.Layouts 1.1
+import QtCharts 2.3
 import  "../../Elements"
 
 Item {
 
     id: chartWindow
 
-    CustomButton {
-        id: buttonSave
+    width: 1280
+    height: 720
 
-        x: 20
-        y: 20
+    Rectangle{
 
-        buttonColorPressed: "#1163ae"
-        buttonColorHover: "#136ec1"
-        buttonColor: "#0085FF"
-        buttonTextColor: "white"
+        id: backSide
 
-        imageUrl: "qrc:/Images/save_icon.png"
-        buttonText: "Сохранить"
+        anchors.fill: parent
+
+        color: "#EFF7FF"
+
+
+        RowLayout {
+
+            anchors.fill: parent
+            anchors.topMargin: 38
+            anchors.bottomMargin: 38
+            anchors.leftMargin: 38
+            anchors.rightMargin: 38
+
+            spacing: 40
+
+            ContentArea {
+
+                id: leftArea
+
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+
+                bgColor: "white"
+
+                ColumnLayout {
+                    anchors.fill: parent
+
+                    CustomSplineChart {
+
+                        id: tremorChart
+
+                        Layout.margins: 40
+                        Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                    }
+
+                    RowLayout {
+                        Layout.bottomMargin: 40
+                        Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+
+                        spacing: parent.width < 580 ? 10 : parent.width/4
+
+                        CustomButton {
+                            id: buttonMainMenu
+
+                            x: 1000
+                            y: 20
+
+                            buttonColorPressed: "#72ffc0"
+                            buttonColorHover: "#b5ffde"
+                            buttonColor: "#d8feed"
+                            buttonTextColor: "green"
+
+                            imageUrl: "qrc:/Images/arrow_icon.png"
+                            buttonText: "В начало"
+                        }
+
+                        CustomButton {
+
+                            id: buttonSave
+
+                            buttonColorPressed: "#1163ae"
+                            buttonColorHover: "#136ec1"
+                            buttonColor: "#0085FF"
+                            buttonTextColor: "white"
+
+                            imageUrl: "qrc:/Images/save_icon.png"
+                            buttonText: "Сохранить"
+
+                            onClicked: saveElementToImg(tremorChart)
+
+                        }
+                    }
+                }
+            }
+
+            ContentArea {
+
+                id: rightArea
+
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+
+                bgColor: "white"
+
+                ColumnLayout {
+
+                    anchors.fill: parent
+
+                    CustomTextArea{
+
+                        Layout.margins: 40
+                        Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+
+                    }
+
+                    RowLayout {
+
+                        Layout.bottomMargin: 40
+                        Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+
+                        spacing: parent.width < 580 ? 10 : parent.width/4
+
+                        CustomButton {
+                            id: buttonSaveText
+
+                            x: 600
+                            y: 20
+
+                            buttonColorPressed: "#1163ae"
+                            buttonColorHover: "#136ec1"
+                            buttonColor: "#0085FF"
+                            buttonTextColor: "white"
+
+                            imageUrl: "qrc:/Images/write_icon.png"
+                            buttonText: "Записать"
+
+                        }
+
+                        CustomButton {
+
+                            id: buttonClear
+
+                            buttonColorPressed: "#1163ae"
+                            buttonColorHover: "#136ec1"
+                            buttonColor: "#0085FF"
+                            buttonTextColor: "white"
+
+                            imageUrl: "qrc:/Images/close_icon.png"
+                            buttonText: "Очистить"
+                        }
+
+                    }
+                }
+            }
+
+        }
 
     }
 
-    CustomButton {
-        id: buttonClear
+    function saveElementToImg(element_id)
+    {
+        element_id.grabToImage(function(result)
+        {
+            result.saveToFile("tremor.png");
+        });
 
-        x: 300
-        y: 20
-
-        buttonColorPressed: "#1163ae"
-        buttonColorHover: "#136ec1"
-        buttonColor: "#0085FF"
-        buttonTextColor: "white"
-
-        imageUrl: "qrc:/Images/close_icon.png"
-        buttonText: "Очистить"
+        chartView.zoomIn(Qt.size(2.0,5.0))
     }
 
-    CustomButton {
-        id: buttonSaveText
-
-        x: 600
-        y: 20
-
-        buttonColorPressed: "#1163ae"
-        buttonColorHover: "#136ec1"
-        buttonColor: "#0085FF"
-        buttonTextColor: "white"
-
-        imageUrl: "qrc:/Images/write_icon.png"
-        buttonText: "Записать"
-
-    }
-
-    CustomButton {
-        id: buttonMainMenu
-
-        x: 1000
-        y: 20
-
-        buttonColorPressed: "#72ffc0"
-        buttonColorHover: "#b5ffde"
-        buttonColor: "#d8feed"
-        buttonTextColor: "green"
-
-        imageUrl: "qrc:/Images/arrow_icon.png"
-        buttonText: "В начало"
-    }
 }
+
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:0.75}
+}
+##^##*/

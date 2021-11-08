@@ -5,5 +5,8 @@
         <file>UI/ChartWindow/ChartScreen.qml</file>
         <file>UI/MainWindow/MainScreen.qml</file>
         <file>UI/CameraWindow/CameraScreen.qml</file>
+        <file>Elements/ContentArea.qml</file>
+        <file>Elements/CustomTextArea.qml</file>
+        <file>Elements/CustomSplineChart.qml</file>
     </qresource>
 </RCC>
