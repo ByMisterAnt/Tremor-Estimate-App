@@ -187,7 +187,7 @@ Item {
     Connections {
             target: app
 
-            sendToQml: {
+            onSendToQml: {
 
             }
         }
