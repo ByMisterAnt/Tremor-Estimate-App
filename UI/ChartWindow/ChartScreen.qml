@@ -157,6 +157,8 @@ Item {
                             imageUrl: "qrc:/Images/write_icon.png"
                             buttonText: "Записать"
 
+                            onClicked: app.writeTextToFile(textComment.value)
+
                         }
 
                         CustomButton {
@@ -181,6 +183,14 @@ Item {
         }
 
     }
+
+    Connections {
+            target: app
+
+            sendToQml: {
+
+            }
+        }
 
     function saveElementToImg(element_id)
     {
