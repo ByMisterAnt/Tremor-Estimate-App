@@ -128,6 +128,8 @@ Item {
                             id: textComment
 
                             width: scrollView.width - 30
+
+                            value: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
                         }
                     }
 
@@ -169,7 +171,7 @@ Item {
                             imageUrl: "qrc:/Images/close_icon.png"
                             buttonText: "Очистить"
 
-                            onClicked:  textComment.value = ""
+                            onClicked:  textComment.value = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
                         }
 
                     }
