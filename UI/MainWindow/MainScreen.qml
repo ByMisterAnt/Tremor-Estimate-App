@@ -45,8 +45,6 @@ Item {
             buttonText: "В начало"
 
             buttonTextColor: "green"
-
-            onClicked: console.log("назад")
         }
 
 

@@ -1,5 +1,5 @@
 import QtQuick 2.15
-import QtQuick.Controls 1.1
+import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 import QtCharts 2.3
 import  "../../Elements"
@@ -74,6 +74,8 @@ Item {
 
                             imageUrl: "qrc:/Images/arrow_icon.png"
                             buttonText: "В начало"
+
+                            onClicked: mainLoader.source = "qrc:/UI/MainWindow/MainScreen.qml"
                         }
 
                         CustomButton {
@@ -108,13 +110,25 @@ Item {
 
                     anchors.fill: parent
 
-                    CustomTextArea{
+
+
+                    ScrollView{
+
+                        id: scrollView
+
+                        clip: true
 
                         Layout.margins: 40
                         Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
                         Layout.fillHeight: true
                         Layout.fillWidth: true
 
+                        CustomTextArea{
+
+                            id: textComment
+
+                            width: scrollView.width - 30
+                        }
                     }
 
                     RowLayout {
@@ -154,6 +168,8 @@ Item {
 
                             imageUrl: "qrc:/Images/close_icon.png"
                             buttonText: "Очистить"
+
+                            onClicked:  textComment.value = ""
                         }
 
                     }
@@ -170,14 +186,12 @@ Item {
         {
             result.saveToFile("tremor.png");
         });
-
-        chartView.zoomIn(Qt.size(2.0,5.0))
     }
 
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}
+    D{i:0;formeditorZoom:0.33}
 }
 ##^##*/

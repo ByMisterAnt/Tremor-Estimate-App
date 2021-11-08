@@ -17,6 +17,17 @@ Item {
             XYPoint { x: 3.4; y: 3.0 }
             XYPoint { x: 4.1; y: 3.3 }
         }
+
+        LineSeries {
+            name: "LineSeries1"
+            XYPoint { x: 0; y: 0 }
+            XYPoint { x: 1.5; y: 2.1 }
+            XYPoint { x: 1.59; y: 3.3 }
+            XYPoint { x: 2.16; y: 2.1 }
+            XYPoint { x: 2.91; y: 4.9 }
+            XYPoint { x: 3.42; y: 3.0 }
+            XYPoint { x: 4.13; y: 3.3 }
+        }
     /*
         MouseArea{
             anchors.fill: parent
