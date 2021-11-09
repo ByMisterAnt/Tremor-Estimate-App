@@ -1,7 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
-import QtCharts 2.3
+import QtCharts 2.15
 import  "../../Elements"
 
 Item {
@@ -52,6 +52,10 @@ Item {
                         Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
                         Layout.fillHeight: true
                         Layout.fillWidth: true
+
+                        chartTitle: "График тремора"
+
+
                     }
 
                     RowLayout {
