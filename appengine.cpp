@@ -4,14 +4,30 @@ appEngine::appEngine(QObject *parent) : QObject(parent)
 {
 }
 
-void appEngine::writeTextToFile(QString count)
+void appEngine::writeTextToFile(QString count, QString typeOfFile)
 {
-    QString fileName = QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(),
-                                                        tr("TXT(*.txt);;LOG(*.log)"));
+    QString fileName = choosePath(typeOfFile);
+
     QFile file(fileName);
     file.open(QIODevice::WriteOnly | QIODevice::Text);
     QTextStream out(&file);
     out << count;
     file.close();
 
+}
+
+QString appEngine::choosePath(QString typeOfFile)
+{
+    if (typeOfFile == "img"){
+
+        return QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(),
+                                                        tr("PNG(*.png);;JPG(*.jpg);;PDF(*.pdf);;BMP(*.bmp);;All Files(*)"));
+    } else if (typeOfFile == "txt"){
+
+        return QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(),
+                                                            tr("TXT(*.txt);;LOG(*.log)"));
+    } else {
+        return QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(),
+                                                            tr("All Files(*)"));
+    }
 }

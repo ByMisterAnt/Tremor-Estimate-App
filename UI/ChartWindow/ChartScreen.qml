@@ -8,6 +8,8 @@ Item {
 
     id: chartWindow
 
+    property string file_path: file_path
+
     width: 1280
     height: 720
 
@@ -90,7 +92,7 @@ Item {
                             imageUrl: "qrc:/Images/save_icon.png"
                             buttonText: "Сохранить"
 
-                            onClicked: saveElementToImg(tremorChart)
+                            onClicked: saveElementImg(tremorChart)
 
                         }
                     }
@@ -157,7 +159,7 @@ Item {
                             imageUrl: "qrc:/Images/write_icon.png"
                             buttonText: "Записать"
 
-                            onClicked: app.writeTextToFile(textComment.value)
+                            onClicked: app.writeTextToFile(textComment.value, "txt")
 
                         }
 
@@ -192,18 +194,13 @@ Item {
             }
         }
 
-    function saveElementToImg(element_id)
-    {
-        element_id.grabToImage(function(result)
-        {
-            result.saveToFile("tremor.png");
-        });
+
+    function saveElementImg(elementId) {
+
+        file_path = app.choosePath("img")
+
+        elementId.grabToImage(function(result) { result.saveToFile(file_path); });
     }
 
-}
 
-/*##^##
-Designer {
-    D{i:0;formeditorZoom:0.33}
 }
-##^##*/

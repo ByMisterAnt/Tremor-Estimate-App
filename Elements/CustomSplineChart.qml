@@ -1,5 +1,5 @@
 import QtQuick 2.15
-import QtCharts 2.3
+import QtCharts 2.15
 
 Item {
 
@@ -7,10 +7,12 @@ Item {
         id: chartView
         anchors.fill: parent
 
-        LineSeries {
-            name: "LineSeries"
-            //XYPoint { x: [0, 1, 2]; y: [0,1,99] }
-        }
+//        LineSeries {
+//            name: "LineSeries"
+//            axisX: [0, 1.5, 1.59, 2.16, 2.91, 3.42, 4.13];
+//            axisY: [0, 2, 3, 2, 5, 3, 3.3]
+//                //XYPoint { x: [0, 1, 2]; y: [0,1,99] }
+//        }
 
         LineSeries {
             name: "LineSeries1"

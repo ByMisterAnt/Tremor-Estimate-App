@@ -17,7 +17,9 @@ signals:
 
 public slots:
 
-    void writeTextToFile(QString areasText);
+    void writeTextToFile(QString areasText, QString typeOfFile);
+
+    QString choosePath(QString typeOfFile);
 
 };
 
