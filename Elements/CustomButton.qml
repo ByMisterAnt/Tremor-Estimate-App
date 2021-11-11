@@ -3,7 +3,6 @@ import QtGraphicalEffects 1.0
 
 Item {
     id: btn
-
     property string buttonText: buttonText
     property color buttonTextColor: buttonTextColor
     property color buttonColorPressed: buttonColorPressed
@@ -33,13 +32,36 @@ Item {
 
         anchors.fill: parent
 
-        color: btnMouse.containsMouse ? (btnMouse.pressed ? buttonColorPressed : colorAnim.start()) : buttonColor
+        color:{
+            if (btnMouse.containsMouse){
+                if(btnMouse.pressed){
+                    return buttonColorPressed
+                }
+                else{
+                    return  colorAnim.start()
+                }
+            }
+            else{
+                return buttonColor
+            }
+        }
+
+
+        //color: btnMouse.containsMouse ? (btnMouse.pressed ? buttonColorPressed : colorAnim.start()) : buttonColor
 
         border.color: btnMouse.containsMouse ? (btnMouse.pressed ? buttonColor : buttonColorPressed) : buttonColorHover
 
         radius: 16
 
-        PropertyAnimation { id: colorAnim; target: btnRectangle; property: "color"; from: btn.buttonColor; to: btn.buttonColorHover; duration: 300}
+        PropertyAnimation{
+
+            id: colorAnim;
+            target: btnRectangle;
+            property: "color";
+            from: btn.buttonColor;
+            to: btn.buttonColorHover;
+            duration: 300
+        }
 
 
         Row{
