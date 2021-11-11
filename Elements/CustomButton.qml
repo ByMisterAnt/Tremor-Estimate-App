@@ -39,7 +39,7 @@ Item {
 
         radius: 16
 
-        PropertyAnimation { id: colorAnim; target: btnRectangle; property: "color"; from: btn.buttonColor; to: btn.buttonColorHover; duration: 500}
+        PropertyAnimation { id: colorAnim; target: btnRectangle; property: "color"; from: btn.buttonColor; to: btn.buttonColorHover; duration: 300}
 
 
         Row{
