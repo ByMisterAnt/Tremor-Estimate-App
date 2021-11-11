@@ -25,6 +25,8 @@ Item {
             gridLineColor: "black"
             titleText: "Значение ошибки"
             titleFont: Qt.font({pointSize: 15, bold: true});
+            min: 0
+            max: 2
             labelsFont.pointSize: 15
         }
 
@@ -67,9 +69,6 @@ Item {
         MouseArea{
             anchors.fill: parent
             onDoubleClicked: chartView.zoomReset();
-            onClicked: {
-               //capturer.save(img)
-            }
 
             onWheel: {
                 chartView.zoomReset();
@@ -103,55 +102,10 @@ Item {
 
     Component.onCompleted: {
         for (var i = 0; i <= 50; i++) {
-            seriesY.append(i, Math.random());
-            seriesX.append(i, Math.random());
-            seriesX.append(i, Math.random());
+            seriesY.append(i, Math.random() + Math.random());
+            seriesX.append(i, Math.random() + Math.random());
+            seriesX.append(i, Math.random() + Math.random());
             seriesNormal.append(i, 0.5)
         }
     }
 }
-
-
-//------------------------------------------------------------------------------------------------------------------------
-//        LineSeries {
-//            name: "LineSeries"
-//            axisX: [0, 1.5, 1.59, 2.16, 2.91, 3.42, 4.13];
-//            axisY: [0, 2, 3, 2, 5, 3, 3.3]
-//                //XYPoint { x: [0, 1, 2]; y: [0,1,99] }
-//        }
-
-/*
-    MouseArea{
-        anchors.fill: parent
-        onDoubleClicked: chartView.zoomReset();
-        onClicked: {
-           //capturer.save(img)
-        }
-
-        onWheel: {
-            chartView.zoomReset();
-            var center_x = wheel.y
-            var center_y = wheel.y
-            var width_zoom = height/wheel.y;
-            var height_zoom = width/wheel.y;
-            var r = Qt.rect(center_x-width_zoom/2, center_y - height_zoom/2, width_zoom, height_zoom)
-            chartView.zoomIn(r)
-        }
-
-
-    }
-
-    PinchArea{
-        id: pa
-        anchors.fill: parent
-        onPinchUpdated: {
-            chartView.zoomReset();
-            var center_x = pinch.center.x
-            var center_y = pinch.center.y
-            var width_zoom = height/pinch.scale;
-            var height_zoom = width/pinch.scale;
-            var r = Qt.rect(center_x-width_zoom/2, center_y - height_zoom/2, width_zoom, height_zoom)
-            chartView.zoomIn(r)
-        }
-    }
-*/

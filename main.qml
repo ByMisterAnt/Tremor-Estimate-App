@@ -13,6 +13,8 @@ Window {
     width: 1280
     height: 720
     visible: true
+
+    //visibility: Window.FullScreen
     title: qsTr("TEA alpha 0.1")
 
     Loader {

@@ -21,7 +21,7 @@ QString appEngine::choosePath(QString typeOfFile)
     if (typeOfFile == "img"){
 
         return QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(),
-                                                        tr("PNG(*.png);;JPG(*.jpg);;PDF(*.pdf);;BMP(*.bmp);;All Files(*)"));
+                                                        tr("PNG(*.png);;JPG(*.jpg);;BMP(*.bmp);;All Files(*)"));
     } else if (typeOfFile == "txt"){
 
         return QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(),

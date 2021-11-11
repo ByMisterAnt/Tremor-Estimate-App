@@ -33,10 +33,13 @@ Item {
 
         anchors.fill: parent
 
-        color: btnMouse.containsMouse ? (btnMouse.pressed ? buttonColorPressed : buttonColorHover) : buttonColor
+        color: btnMouse.containsMouse ? (btnMouse.pressed ? buttonColorPressed : colorAnim.start()) : buttonColor
 
         border.color: btnMouse.containsMouse ? (btnMouse.pressed ? buttonColor : buttonColorPressed) : buttonColorHover
+
         radius: 16
+
+        PropertyAnimation { id: colorAnim; target: btnRectangle; property: "color"; from: btn.buttonColor; to: btn.buttonColorHover; duration: 500}
 
 
         Row{
