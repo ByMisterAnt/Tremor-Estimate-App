@@ -69,7 +69,7 @@ Item {
 
         MouseArea{
             anchors.fill: parent
-            onDoubleClicked: chartView.zoomReset();
+            onDoubleClicked: resetChart()
 
             onWheel: {
                 chartView.zoomReset();
@@ -98,6 +98,11 @@ Item {
             }
 
         }
+    }
+
+    function resetChart(){
+        chartView.zoomReset();
+        zom = 1;
     }
 
     Component.onCompleted: {

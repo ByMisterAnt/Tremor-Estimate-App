@@ -1,4 +1,4 @@
-QT += core gui printsupport quick widgets
+QT += core gui printsupport quick widgets quickwidgets
 
 CONFIG += c++11
 
@@ -8,7 +8,8 @@ CONFIG += c++11
 
 SOURCES += \
         appengine.cpp \
-        main.cpp
+        main.cpp \
+        widget.cpp
 
 RESOURCES += qml.qrc \
     images.qrc
@@ -25,4 +26,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    appengine.h
+    appengine.h \
+    widget.h

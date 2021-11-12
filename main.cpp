@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QQuickWidget>
 #include "appengine.h"
 
 int main(int argc, char *argv[])
