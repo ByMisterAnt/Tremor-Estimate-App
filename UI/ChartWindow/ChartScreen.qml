@@ -54,11 +54,10 @@ Item {
                         Layout.fillWidth: true
 
                         chartTitle: "График тремора"
-
-
                     }
 
                     RowLayout {
+
                         Layout.bottomMargin: 40
                         Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
@@ -152,9 +151,6 @@ Item {
                         CustomButton {
                             id: buttonSaveText
 
-                            x: 600
-                            y: 20
-
                             buttonColorPressed: "#1163ae"
                             buttonColorHover: "#136ec1"
                             buttonColor: "#0085FF"
@@ -164,7 +160,6 @@ Item {
                             buttonText: "Записать"
 
                             onClicked: app.writeTextToFile(textComment.value, "txt")
-
                         }
 
                         CustomButton {
