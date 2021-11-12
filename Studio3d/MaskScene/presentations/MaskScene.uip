@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <UIP version="7" >
 	<Project >
-		<ProjectSettings author="" company="" presentationWidth="640" presentationHeight="480" maintainAspect="False" preferKtx="False" flipCompressedTextures="False" >
+		<ProjectSettings author="" company="" presentationWidth="800" presentationHeight="1080" maintainAspect="False" preferKtx="False" flipCompressedTextures="False" >
 			<CustomColors count="16" >#ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff</CustomColors>
 		</ProjectSettings>
 		<Graph >

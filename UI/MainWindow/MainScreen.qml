@@ -32,7 +32,7 @@ Item {
 
             bgColor: "white"
 
-            ColumnLayout {
+            RowLayout {
 
                 anchors.fill: parent
                 anchors.topMargin: 30
@@ -50,7 +50,7 @@ Item {
 
                     bgColor: "#EFF7FF"
 
-                    RowLayout {
+                    ColumnLayout {
 
                         anchors.fill: parent
                         anchors.topMargin: 30
@@ -178,94 +178,92 @@ Item {
 
                             }
                         }
-                    }
-                }
 
-                Item {
-                id: mainRightArea
+                        Item {
+                        id: mainBottomtArea
 
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-
-
-                RowLayout {
-
-                    anchors.fill: parent
-
-                    ContentArea {
-                        id: processingArea
                         Layout.fillHeight: true
                         Layout.fillWidth: true
 
-                        bgColor: "#EFF7FF"
-
-                        ColumnLayout {
-
+                        ContentArea {
+                            id: processingArea
                             anchors.fill: parent
-                            anchors.topMargin: 30
-                            anchors.bottomMargin: 30
-                            anchors.leftMargin: 30
-                            anchors.rightMargin: 30
 
-                            spacing: 10
+                            bgColor: "#EFF7FF"
 
-                            Text {
+                            ColumnLayout {
 
-                                Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+                                anchors.fill: parent
+                                anchors.topMargin: 30
+                                anchors.bottomMargin: 30
+                                anchors.leftMargin: 30
+                                anchors.rightMargin: 30
 
-                                text: "Загрузить видео"
-                                font.family: "Helvetica"
-                                font.pointSize: 24
-                                color: "black"
-                                horizontalAlignment: Text.AlignHCenter
-                                verticalAlignment: Text.AlignVCenter
-                            }
+                                spacing: 10
+
+                                Text {
+
+                                    Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+
+                                    text: "Загрузить видео"
+                                    font.family: "Helvetica"
+                                    font.pointSize: 24
+                                    color: "black"
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                }
 
 
-                            RowLayout {
+                                RowLayout {
 
-                                Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+                                    Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
-                                Layout.fillHeight: true
-                                Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                    Layout.fillWidth: true
 
-                                spacing: 30
+                                    spacing: 30
 
-                                    CustomButton {
-                                        id: buttonChoose
+                                        CustomButton {
+                                            id: buttonChoose
 
-                                        Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+                                            Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
-                                        border_width: 2
+                                            border_width: 2
 
-                                        buttonColorPressed: "#1163ae"
-                                        buttonColorHover: "#136ec1"
-                                        buttonColor: "white"//"#0085FF"
-                                        buttonTextColor: "black"
+                                            buttonColorPressed: "#1163ae"
+                                            buttonColorHover: "#136ec1"
+                                            buttonColor: "white"//"#0085FF"
+                                            buttonTextColor: "black"
 
-                                        imageUrl: "qrc:/Images/folder.png"
-                                        buttonText: "Выбрать"
-                                    }
+                                            imageUrl: "qrc:/Images/folder.png"
+                                            buttonText: "Выбрать"
+                                        }
 
-                                    CustomButton {
-                                        id: buttonProcessing
+                                        CustomButton {
+                                            id: buttonProcessing
 
-                                        Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+                                            Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
-                                        buttonColorPressed: "#1163ae"
-                                        buttonColorHover: "#136ec1"
-                                        buttonColor: "#0085FF"
-                                        buttonTextColor: "white"
+                                            buttonColorPressed: "#1163ae"
+                                            buttonColorHover: "#136ec1"
+                                            buttonColor: "#0085FF"
+                                            buttonTextColor: "white"
 
-                                        imageUrl: "qrc:/Images/processing.png"
-                                        buttonText: "Обработать"
+                                            imageUrl: "qrc:/Images/processing.png"
+                                            buttonText: "Обработать"
 
-                                        onClicked: mainLoader.source = "qrc:/UI/ChartWindow/ChartScreen.qml"
+                                            onClicked: mainLoader.source = "qrc:/UI/ChartWindow/ChartScreen.qml"
+                                        }
                                     }
                                 }
                             }
-                        }
 
+                        }
+                    }
+                }
+
+
+//------------------------------ Studio3D content --------------------------
                     Item {
 
                         id: studio3dArea
@@ -287,15 +285,15 @@ Item {
                                 }
                                 Presentation {
                                     id: pres
-                                    source: "qrc:/Studio3d/MaskScene/MaskScene.uia"
+                                    source: "qrc:/Studio3d/MaskScene/presentations/MaskScene.uip"
 
                                 }
                         }
                     }
+//------------------------------ end of Studio3D content --------------------------
 
 
-                    }
-                }
+
             }
         }
     }
@@ -304,6 +302,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.5;height:720;width:1280}
+    D{i:0;autoSize:true;formeditorZoom:0.5;height:1080;width:1920}
 }
 ##^##*/
