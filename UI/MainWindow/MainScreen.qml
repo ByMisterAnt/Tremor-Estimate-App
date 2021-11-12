@@ -94,7 +94,7 @@ Item {
                                     buttonColor: "#0085FF"
                                     buttonTextColor: "white"
 
-                                    imageUrl: "qrc:/Images/write_icon.png"
+                                    imageUrl: "qrc:/Images/video.png"
                                     buttonText: "Начать"
                                 }
 
@@ -140,9 +140,30 @@ Item {
                                     spacing: 30
 
                                     TextEdit {
+
                                         id: te
+
+                                        width: 100
+                                        height: 70
+
+                                        horizontalAlignment: Text.AlignHCenter
+                                        verticalAlignment: Text.AlignVCenter
+
                                         font.pointSize: 20;
+                                        color: "#000000"
+
                                         text: "00:15"
+
+//                                        Rectangle{
+
+//                                            id: bgTextEdit
+
+//                                            width: parent.width
+//                                            height: parent.height
+//                                            z: 0
+
+//                                            color: "white"
+//                                        }
                                     }
 
                                     CustomButton {
@@ -150,12 +171,14 @@ Item {
 
                                         Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
+                                        border_width: 2
+
                                         buttonColorPressed: "#1163ae"
                                         buttonColorHover: "#136ec1"
-                                        buttonColor: "#0085FF"
-                                        buttonTextColor: "white"
+                                        buttonColor: "white"
+                                        buttonTextColor: "black"
 
-                                        imageUrl: "qrc:/Images/write_icon.png"
+                                        imageUrl: "qrc:/Images/timer.png"
                                         buttonText: "Установить"
                                     }
                                 }
@@ -226,12 +249,14 @@ Item {
 
                                         Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
+                                        border_width: 2
+
                                         buttonColorPressed: "#1163ae"
                                         buttonColorHover: "#136ec1"
-                                        buttonColor: "#0085FF"
-                                        buttonTextColor: "white"
+                                        buttonColor: "white"//"#0085FF"
+                                        buttonTextColor: "black"
 
-                                        imageUrl: "qrc:/Images/write_icon.png"
+                                        imageUrl: "qrc:/Images/folder.png"
                                         buttonText: "Выбрать"
                                     }
 
@@ -245,7 +270,7 @@ Item {
                                         buttonColor: "#0085FF"
                                         buttonTextColor: "white"
 
-                                        imageUrl: "qrc:/Images/write_icon.png"
+                                        imageUrl: "qrc:/Images/processing.png"
                                         buttonText: "Обработать"
 
                                         onClicked: mainLoader.source = "qrc:/UI/ChartWindow/ChartScreen.qml"
@@ -271,6 +296,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}
+    D{i:0;autoSize:true;formeditorZoom:0.5;height:720;width:1280}
 }
 ##^##*/

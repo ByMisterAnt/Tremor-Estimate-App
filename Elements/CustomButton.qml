@@ -4,6 +4,7 @@ import QtGraphicalEffects 1.0
 Item {
     id: btn
     property string buttonText: buttonText
+    property int border_width: border_width
     property color buttonTextColor: buttonTextColor
     property color buttonColorPressed: buttonColorPressed
     property color buttonColorHover: buttonColorHover
@@ -52,6 +53,8 @@ Item {
 
         border.color: btnMouse.containsMouse ? (btnMouse.pressed ? buttonColor : buttonColorPressed) : buttonColorHover
 
+        border.width: border_width
+
         radius: 16
 
         PropertyAnimation{
@@ -78,8 +81,8 @@ Item {
         Row{
 
             anchors.fill: parent
-            spacing: 10
-            leftPadding: 12
+            spacing: btnText.width > 110 ? 7 : btnText.width < 80 ? 30 : 15
+            leftPadding: 10
 
 
             Image{
@@ -100,6 +103,9 @@ Item {
 
                 anchors.verticalCenter: parent.verticalCenter
 
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+
                 text: buttonText
                 font.family: "Roboto"
                 color: buttonTextColor
@@ -109,12 +115,14 @@ Item {
         }
 
         MouseArea {
+
             id: btnMouse
 
             anchors.fill: parent
 
             hoverEnabled: true
             onClicked: btn.clicked()
+            //todo when hover add hand instead of mouse
         }
     }
 }
