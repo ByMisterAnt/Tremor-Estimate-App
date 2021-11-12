@@ -27,7 +27,7 @@ Item {
 
             bgColor: "white"
 
-            RowLayout {
+            ColumnLayout {
 
                 anchors.fill: parent
                 anchors.topMargin: 30
@@ -35,17 +35,17 @@ Item {
                 anchors.leftMargin: 30
                 anchors.rightMargin: 30
 
-                spacing: 30
+                spacing: 70
 
-                ContentArea{
+                ContentArea {
                     id: mainLeftArea
 
                     Layout.fillHeight: true
                     Layout.fillWidth: true
 
-                    bgColor: "#E5E5E5"
+                    bgColor: "#EFF7FF"
 
-                    ColumnLayout{
+                    RowLayout {
 
                         anchors.fill: parent
                         anchors.topMargin: 30
@@ -54,15 +54,14 @@ Item {
                         anchors.rightMargin: 30
                         spacing: 30
 
-                        ContentArea{
+                        Item {
 
                             id: recArea
                             Layout.fillHeight: true
                             Layout.fillWidth: true
 
-                            bgColor: "#EFF7FF"
 
-                            ColumnLayout{
+                            ColumnLayout {
 
                                 anchors.fill: parent
                                 anchors.topMargin: 30
@@ -101,14 +100,13 @@ Item {
                             }
                         }
 
-                        ContentArea{
+                        Item {
                             id: timerArea
                             Layout.fillHeight: true
                             Layout.fillWidth: true
 
-                            bgColor: "#EFF7FF"
 
-                            ColumnLayout{
+                            ColumnLayout {
 
                                 anchors.fill: parent
                                 anchors.topMargin: 30
@@ -130,7 +128,7 @@ Item {
                                     verticalAlignment: Text.AlignVCenter
                                 }
 
-                                RowLayout{
+                                RowLayout {
 
                                     Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
@@ -154,16 +152,6 @@ Item {
 
                                         text: "00:15"
 
-//                                        Rectangle{
-
-//                                            id: bgTextEdit
-
-//                                            width: parent.width
-//                                            height: parent.height
-//                                            z: 0
-
-//                                            color: "white"
-//                                        }
                                     }
 
                                     CustomButton {
@@ -188,31 +176,25 @@ Item {
                     }
                 }
 
-                ContentArea{
+                Item {
                 id: mainRightArea
 
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-                bgColor: "#E5E5E5"
 
-                ColumnLayout{
+                RowLayout {
 
                     anchors.fill: parent
-                    anchors.topMargin: 30
-                    anchors.bottomMargin: 30
-                    anchors.leftMargin: 30
-                    anchors.rightMargin: 30
-                    spacing: 30
 
-                    ContentArea{
+                    ContentArea {
                         id: processingArea
                         Layout.fillHeight: true
                         Layout.fillWidth: true
 
                         bgColor: "#EFF7FF"
 
-                        ColumnLayout{
+                        ColumnLayout {
 
                             anchors.fill: parent
                             anchors.topMargin: 30
@@ -235,7 +217,7 @@ Item {
                             }
 
 
-                            RowLayout{
+                            RowLayout {
 
                                 Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
@@ -279,13 +261,20 @@ Item {
                             }
                         }
 
-                        ContentArea{
-                            id: viewArea
-                            Layout.fillHeight: true
-                            Layout.fillWidth: true
+                    Item {
 
-                            bgColor: "red"
+                        id: studio3dArea
+
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+
+                        Rectangle{
+                            width: parent/2
+                            height: parent/2
                         }
+                    }
+
+
                     }
                 }
             }
