@@ -185,12 +185,6 @@ Item {
                         Layout.fillHeight: true
                         Layout.fillWidth: true
 
-                        ContentArea {
-                            id: processingArea
-                            anchors.fill: parent
-
-                            bgColor: "#EFF7FF"
-
                             ColumnLayout {
 
                                 anchors.fill: parent
@@ -256,7 +250,6 @@ Item {
                                         }
                                     }
                                 }
-                            }
 
                         }
                     }
