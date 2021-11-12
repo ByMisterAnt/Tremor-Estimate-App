@@ -5,6 +5,11 @@ Item {
 
     property string chartTitle: chartTitle
     property double zom: 1
+    property double width_zoom: width_zoom
+    property double height_zoom: height_zoom
+    property double center_y: center_y
+    property double center_x: center_y
+
 
     ChartView {
         id: chartView
@@ -69,7 +74,7 @@ Item {
 
         MouseArea{
             anchors.fill: parent
-            onDoubleClicked: resetChart()
+            onDoubleClicked: chartView.zoomReset();     
 
             onWheel: {
                 chartView.zoomReset();
@@ -88,21 +93,17 @@ Item {
                         zom = 10
                     }
 
-                var center_x = wheel.x
-                var center_y = wheel.y
-                var width_zoom = 50*zom;
-                var height_zoom = 50*zom;
+                center_x = wheel.x;
+                center_y = wheel.y;
+                width_zoom = 50*zom;
+                height_zoom = 50*zom;
                 var r = Qt.rect(center_x-width_zoom/2, center_y - height_zoom/2, width_zoom, height_zoom)
                 chartView.zoomIn(r)
                 console.log(wheel.angleDelta.y, zom)
             }
 
-        }
-    }
 
-    function resetChart(){
-        chartView.zoomReset();
-        zom = 1;
+        }
     }
 
     Component.onCompleted: {
