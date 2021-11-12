@@ -42,7 +42,7 @@ Item {
                 }
             }
             else{
-                return buttonColor
+                return unhoverAnim.start()
             }
         }
 
@@ -60,6 +60,16 @@ Item {
             property: "color";
             from: btn.buttonColor;
             to: btn.buttonColorHover;
+            duration: 300
+        }
+
+        PropertyAnimation{
+
+            id: unhoverAnim;
+            target: btnRectangle;
+            property: "color";
+            from: btn.color;
+            to: btn.buttonColor;
             duration: 300
         }
 
