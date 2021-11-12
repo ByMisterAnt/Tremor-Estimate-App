@@ -3,6 +3,11 @@ import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 import  "../../Elements"
 
+//
+import QtQuick3D 1.15
+import QtStudio3D.OpenGL 2.5
+//
+
 Item {
 
     id: mainWindow
@@ -268,9 +273,23 @@ Item {
                         Layout.fillHeight: true
                         Layout.fillWidth: true
 
-                        Rectangle{
-                            width: parent/2
-                            height: parent/2
+                        Studio3D {
+                                id: studio3D
+                                visible: true
+                                anchors.fill: parent
+
+                                property vector3d rotCarVec3d: Qt.vector3d(0.0, 0.0, 0.0)
+                                property real rotBlade: 0
+
+                                //Presentation settings
+                                ViewerSettings{
+                                scaleMode: ViewerSettings.ScaleModeFit
+                                }
+                                Presentation {
+                                    id: pres
+                                    source: "qrc:/Studio3d/MaskScene/MaskScene.uia"
+
+                                }
                         }
                     }
 

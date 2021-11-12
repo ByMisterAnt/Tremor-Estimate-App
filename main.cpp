@@ -1,13 +1,19 @@
-#include <QApplication>
+//#include <QApplication>
+#include <QtWidgets/QApplication>
+#include <QtQuick/QQuickView>
+#include <qstudio3dglobal.h>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "appengine.h"
 
 int main(int argc, char *argv[])
 {
+    qputenv("QSG_INFO", "1");
+
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication app(argc, argv);
+    QSurfaceFormat::setDefaultFormat(Q3DS::surfaceFormat());
 
     QQmlApplicationEngine engine;
     appEngine appCore;

@@ -1,4 +1,4 @@
-QT += core gui printsupport quick widgets quickwidgets
+QT += core gui printsupport quick widgets quickwidgets studio3d
 
 CONFIG += c++11
 
@@ -12,7 +12,8 @@ SOURCES += \
         widget.cpp
 
 RESOURCES += qml.qrc \
-    images.qrc
+    images.qrc \
+    scene3d.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
