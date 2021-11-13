@@ -122,6 +122,7 @@ Item {
 
             hoverEnabled: true
             onClicked: btn.clicked()
+            cursorShape: Qt.PointingHandCursor
             //todo when hover add hand instead of mouse
         }
     }

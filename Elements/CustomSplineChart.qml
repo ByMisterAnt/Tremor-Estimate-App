@@ -99,7 +99,6 @@ Item {
                 height_zoom = 50*zom;
                 var r = Qt.rect(center_x-width_zoom/2, center_y - height_zoom/2, width_zoom, height_zoom)
                 chartView.zoomIn(r)
-                console.log(wheel.angleDelta.y, zom)
             }
 
 

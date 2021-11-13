@@ -1,12 +1,7 @@
 import QtQuick 2.15
-import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 import  "../../Elements"
 
-//
-import QtQuick3D 1.15
-import QtStudio3D.OpenGL 2.5
-//
 
 Item {
 
@@ -257,32 +252,19 @@ Item {
 
 
 //------------------------------ Studio3D content --------------------------
-                    Item {
+                Item {
 
-                        id: studio3dArea
+                    id: studio3dArea
 
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
 
-                        Studio3D {
-                                id: studio3D
-                                visible: true
-                                anchors.fill: parent
+                    Custom3dStudio{
 
-                                property vector3d rotCarVec3d: Qt.vector3d(0.0, 0.0, 0.0)
-                                property real rotBlade: 0
+                        presentation_path: "qrc:/Studio3d/MaskScene/presentations/MaskScene.uip"
 
-                                //Presentation settings
-                                ViewerSettings{
-                                scaleMode: ViewerSettings.ScaleModeFit
-                                }
-                                Presentation {
-                                    id: pres
-                                    source: "qrc:/Studio3d/MaskScene/presentations/MaskScene.uip"
-
-                                }
-                        }
                     }
+                }
 //------------------------------ end of Studio3D content --------------------------
 
 

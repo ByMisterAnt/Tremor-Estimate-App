@@ -1,7 +1,9 @@
-//#include <QApplication>
 #include <QtWidgets/QApplication>
 #include <QtQuick/QQuickView>
+//switch when build portable version
+//#include <QtStudio3D/qstudio3dglobal.h>
 #include <qstudio3dglobal.h>
+//
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "appengine.h"
