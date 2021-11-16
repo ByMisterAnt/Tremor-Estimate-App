@@ -1,63 +1,39 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
-import QtQuick.Controls 1.1 as Controls
+import QtQuick.Controls 1.1
+import QtQuick.Layouts 1.1
+
 import  "Elements"
+
+import "UI/ChartWindow"
+import "UI/MainWindow"
+import "UI/CameraWindow"
 
 
 Window {
+
+    id: mainWindow
+
     width: 1280
     height: 720
     visible: true
-    title: qsTr("TEA alpha 0.1")
 
+    //visibility: Window.FullScreen
+    title: qsTr("TEA alpha 1.0")
 
-    Item{
-        id: chartWindow
+    property url filePathForPlot: "./tremor.txt"
 
-        BlueBtn {
-            id: buttonSave
-
-            x: 20
-            y: 20
-
-            imageUrl_blue: "qrc:/Images/save_icon.png"
-
-            buttonText_blue: "Сохранить"
-
+    Loader {
+            id: mainLoader
+            anchors.fill: parent
+            source: "qrc:/UI/MainWindow/MainScreen.qml"
         }
+//    Item{
+//        anchors.fill: parent
+//    PlotView {
+//        anchors.fill: parent
 
-        BlueBtn {
-            id: buttonClear
+//            }
+//            }
 
-            x: 300
-            y: 20
-
-            imageUrl_blue: "qrc:/Images/close_icon.png"
-
-            buttonText_blue: "Очистить"
-        }
-
-        BlueBtn {
-            id: buttonSaveText
-
-            x: 600
-            y: 20
-
-            imageUrl_blue: "qrc:/Images/write_icon.png"
-
-            buttonText_blue: "Записать"
-
-        }
-
-        GreenBtn {
-            id: buttonMainMenu
-
-            x: 1000
-            y: 20
-
-            imageUrl_green: "qrc:/Images/arrow_icon.png"
-
-            buttonText_green: "В начало"
-        }
-    }
 }
