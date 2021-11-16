@@ -42,21 +42,8 @@ void VideoCapture::run()
 
             if(recTime * 0.16 >= stopTime)
             {
-                out.open("tremor.txt");
-
-                for(auto i : X) {
-                    out << i << std::endl;
-                }
-
-                out.close();
-
-                qDebug()<<"ЗАКРОЙ";
-
-                X.clear();
-                Y.clear();
-                time.clear();
-
-                emit endRecording();
+                qDebug() << "exit";
+                break;
             }
 
             if (!result.empty())
@@ -66,6 +53,23 @@ void VideoCapture::run()
             }
             result = NULL;
         }
+
+        out.open("tremor.txt");
+
+        for(auto i : X) {
+            out << i << std::endl;
+        }
+
+        out.close();
+
+        qDebug()<<"ЗАКРОЙ";
+
+        recTime = 0;
+        X.clear();
+        Y.clear();
+        time.clear();
+
+        emit endRecording();
     }
 
 }

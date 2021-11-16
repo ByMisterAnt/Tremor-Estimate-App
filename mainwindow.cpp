@@ -27,11 +27,13 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     mOpenCV_videoCapture->start(QThread::HighestPriority);
-    emit goToNext(QString("./gg.txt"));
 }
 
 void MainWindow::closeWindow()
 {
+    // load Chart Screen in qml
+    emit goToNext(QString("./gg.txt"));
+
     MainWindow::~MainWindow();
 }
 
