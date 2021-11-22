@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Studio3d/MaskScene/materials/None.materialdef</file>
+        <file>Studio3d/MaskScene/models/medfbx/meshes/had_1_Cylinder.000.mesh</file>
+        <file>Studio3d/MaskScene/models/medfbx/meshes/had_2_Cylinder.002.mesh</file>
+        <file>Studio3d/MaskScene/models/medfbx/meshes/hul_Circle.001.mesh</file>
+        <file>Studio3d/MaskScene/models/medfbx/meshes/kniha_Plane.mesh</file>
+        <file>Studio3d/MaskScene/models/medfbx/medfbx.import</file>
+        <file>Studio3d/MaskScene/presentations/MaskScene.uip</file>
+        <file>Studio3d/MaskScene/MaskScene.uia</file>
+    </qresource>
+</RCC>

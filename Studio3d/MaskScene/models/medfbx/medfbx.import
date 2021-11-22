@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UIP Version="1" >
+	<Project Revision="1" >
+		<Graph >
+			<Group id="__import__root__" >
+				<Light id="Light" name="Light" brightness="100000" castshadow="True" expfade="3000" lightdiffuse="1 1 1 1" lighttype="Point" linearfade="0" orientation="Right Handed" position="822.007 -34.6039 -319.969" rotation="-132.466 72.7792 -169.256" rotationorder="XYZr" scale="1 1 1" />
+				<Model id="had_2_Cylinder.002" name="had_2_Cylinder.002" orientation="Right Handed" position="0 0 -228.371" rotation="9.33467e-06 0 0" rotationorder="XYZr" scale="100 100 100" sourcepath="meshes/had_2_Cylinder.002.mesh" >
+					<Material id="None" name="None" blendmode="Normal" diffuse="0.0783684 0.0783684 0.0783684 1" emissivepower="63.5091" opacity="100" specularamount="0" specularroughness="95.9105" />
+				</Model>
+				<Model id="had_1_Cylinder.000" name="had_1_Cylinder.000" orientation="Right Handed" position="0 0 -228.371" rotation="9.33467e-06 0 0" rotationorder="XYZr" scale="100 100 100" sourcepath="meshes/had_1_Cylinder.000.mesh" >
+					<Material id="None_0001" name="None" blendmode="Normal" diffuse="0.0783684 0.0783684 0.0783684 1" emissivepower="63.5091" opacity="100" specularamount="0" specularroughness="95.9105" />
+				</Model>
+				<Model id="kniha_Plane" name="kniha_Plane" orientation="Right Handed" position="0 0 -228.371" rotation="9.33467e-06 0 0" rotationorder="XYZr" scale="100 100 100" sourcepath="meshes/kniha_Plane.mesh" >
+					<Material id="None_0002" name="None" blendmode="Normal" diffuse="0.0783684 0.0783684 0.0783684 1" emissivepower="63.5091" opacity="100" specularamount="0" specularroughness="95.9105" />
+				</Model>
+				<Model id="hul_Circle.001" name="hul_Circle.001" orientation="Right Handed" position="0 0 -228.371" rotation="9.33467e-06 0 0" rotationorder="XYZr" scale="100 100 100" sourcepath="meshes/hul_Circle.001.mesh" >
+					<Material id="None_0003" name="None" blendmode="Normal" diffuse="0.0783684 0.0783684 0.0783684 1" emissivepower="63.5091" opacity="100" specularamount="0" specularroughness="95.9105" />
+				</Model>
+			</Group>
+		</Graph>
+		<Import SrcFile="../../medfbx.fbx" ImageDir="maps" MeshDir="meshes" >
+			<Mesh >
+				<Source >kniha_Plane</Source>
+				<Dest >meshes/kniha_Plane.mesh</Dest>
+			</Mesh>
+			<Mesh >
+				<Source >hul_Circle.001</Source>
+				<Dest >meshes/hul_Circle.001.mesh</Dest>
+			</Mesh>
+			<Mesh >
+				<Source >had_1_Cylinder.000</Source>
+				<Dest >meshes/had_1_Cylinder.000.mesh</Dest>
+			</Mesh>
+			<Mesh >
+				<Source >had_2_Cylinder.002</Source>
+				<Dest >meshes/had_2_Cylinder.002.mesh</Dest>
+			</Mesh>
+		</Import>
+	</Project>
+</UIP>

@@ -5,5 +5,9 @@
         <file>Images/close_icon.png</file>
         <file>Images/save_icon.png</file>
         <file>Images/write_icon.png</file>
+        <file>Images/folder.png</file>
+        <file>Images/processing.png</file>
+        <file>Images/timer.png</file>
+        <file>Images/video.png</file>
     </qresource>
 </RCC>
