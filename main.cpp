@@ -4,7 +4,6 @@
 //switch when build portable version
 #include <QtStudio3D/qstudio3dglobal.h>
 //#include <qstudio3dglobal.h>
-//
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "appengine.h"
@@ -17,11 +16,13 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication app(argc, argv);
+
     QSurfaceFormat::setDefaultFormat(Q3DS::surfaceFormat());
 
     qmlRegisterType<CustomPlotItem>("CustomPlot", 1, 0, "CustomPlotItem");
 
     QQmlApplicationEngine engine;
+
     appEngine appCore;
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
@@ -31,7 +32,6 @@ int main(int argc, char *argv[])
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
-
 
     engine.rootContext()->setContextProperty("app", &appCore);
 

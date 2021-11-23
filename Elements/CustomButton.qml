@@ -1,8 +1,10 @@
 import QtQuick 2.15
 import QtGraphicalEffects 1.0
 
-Item {
+Item
+{
     id: btn
+
     property string buttonText: buttonText
     property int border_width: border_width
     property color buttonTextColor: buttonTextColor
@@ -15,51 +17,55 @@ Item {
     height: 70
     width: 200
 
-
     signal clicked()
 
-    DropShadow{
+    DropShadow
+    {
         anchors.fill: btnRectangle
+
         horizontalOffset: 2
         verticalOffset: 2
         radius: 9
         samples: 15
         source: btnRectangle
         color: "black"
-        }
+    }
 
-    Rectangle{
+    Rectangle
+    {
         id: btnRectangle
 
         anchors.fill: parent
 
-        color:{
-            if (btnMouse.containsMouse){
-                if(btnMouse.pressed){
+        color:
+        {
+            if (btnMouse.containsMouse)
+            {
+                if(btnMouse.pressed)
+                {
                     return buttonColorPressed
                 }
-                else{
+                else
+                {
                     return  colorAnim.start()
                 }
             }
-            else{
+
+            else
+            {
                 return unhoverAnim.start()
 
             }
         }
 
-
-        //color: btnMouse.containsMouse ? (btnMouse.pressed ? buttonColorPressed : colorAnim.start()) : buttonColor
-
         border.color: btnMouse.containsMouse ? (btnMouse.pressed ? buttonColor : buttonColorPressed) : buttonColorHover
-
         border.width: border_width
-
         radius: 16
 
-        PropertyAnimation{
-
+        PropertyAnimation
+        {
             id: colorAnim;
+
             target: btnRectangle;
             property: "color";
             from: btn.buttonColor;
@@ -67,26 +73,27 @@ Item {
             duration: 300
         }
 
-        PropertyAnimation{
-
+        PropertyAnimation
+        {
              id: unhoverAnim;
+
              target: btnRectangle;
              property: "color";
              from: btn.color;
              to: btn.buttonColor;
              duration: 300
-         }
+        }
 
 
-        Row{
-
+        Row
+        {
             anchors.fill: parent
+
             spacing: btnText.width > 110 ? 7 : btnText.width < 80 ? 30 : 15
             leftPadding: 10
 
-
-            Image{
-
+            Image
+            {
                 id: imageIcon
 
                 width: 47
@@ -98,7 +105,8 @@ Item {
             }
 
 
-            Text{
+            Text
+            {
                 id: btnText
 
                 anchors.verticalCenter: parent.verticalCenter
@@ -114,7 +122,8 @@ Item {
 
         }
 
-        MouseArea {
+        MouseArea
+        {
 
             id: btnMouse
 
@@ -123,7 +132,6 @@ Item {
             hoverEnabled: true
             onClicked: btn.clicked()
             cursorShape: Qt.PointingHandCursor
-            //todo when hover add hand instead of mouse
         }
     }
 }

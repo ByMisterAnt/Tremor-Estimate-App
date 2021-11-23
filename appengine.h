@@ -4,14 +4,14 @@
 #include <QObject>
 #include <QFileDialog>
 #include <QTextStream>
-#include <QDebug>
-
 #include <mainwindow.h>
 
 class appEngine : public QObject
 {
     Q_OBJECT
+
 public:
+
     explicit appEngine(QObject *parent = 0);
 
 signals:
