@@ -9,5 +9,6 @@
         <file>Elements/CustomTextArea.qml</file>
         <file>Elements/CustomSplineChart.qml</file>
         <file>Elements/Custom3dStudio.qml</file>
+        <file>Elements/PlotView.qml</file>
     </qresource>
 </RCC>

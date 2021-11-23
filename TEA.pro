@@ -9,7 +9,10 @@ CONFIG += c++11
 SOURCES += \
         appengine.cpp \
         main.cpp \
-        widget.cpp
+        mainwindow.cpp \
+        qcustomplot.cpp \
+        qmlplot.cpp \
+        videocapture.cpp
 
 RESOURCES += qml.qrc \
     images.qrc \
@@ -28,4 +31,17 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     appengine.h \
-    widget.h
+    mainwindow.h \
+    qcustomplot.h \
+    qmlplot.h \
+    videocapture.h
+
+FORMS += \
+    mainwindow.ui
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../../../opencv/build/x64/vc15/lib/ -lopencv_world454
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../../../opencv/build/x64/vc15/lib/ -lopencv_world454d
+else:unix: LIBS += -L$$PWD/../../../../../../opencv/build/x64/vc15/lib/ -lopencv_world454
+
+INCLUDEPATH += $$PWD/../../../../../../opencv/build/include
+DEPENDPATH += $$PWD/../../../../../../opencv/build/include

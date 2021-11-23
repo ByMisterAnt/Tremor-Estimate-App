@@ -4,23 +4,23 @@ import QtStudio3D.OpenGL 2.5
 
 
 
-Studio3D {
+Studio3D
+{
     id: studio3D
-    visible: true
+
     anchors.fill: parent
 
     property url presentation_path: presentation_path
 
-    ViewerSettings{
+    ViewerSettings
+    {
 
         scaleMode: ViewerSettings.ScaleModeFit
-
     }
 
-    Presentation {
-
+    Presentation
+    {
         source: presentation_path
-
     }
 }
 

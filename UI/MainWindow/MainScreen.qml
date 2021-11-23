@@ -1,22 +1,23 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.1
+
 import  "../../Elements"
 
+Item
+{
 
-Item {
+    id: mainScreen
 
-    id: mainWindow
-
-    Rectangle{
-
+    Rectangle
+    {
         id: mainBackSide
 
         anchors.fill: parent
 
         color: "#EFF7FF"
 
-        ContentArea{
-
+        ContentArea
+        {
             id: mainItemBack
 
             anchors.fill: parent
@@ -27,8 +28,8 @@ Item {
 
             bgColor: "white"
 
-            RowLayout {
-
+            RowLayout
+            {
                 anchors.fill: parent
                 anchors.topMargin: 30
                 anchors.bottomMargin: 30
@@ -37,7 +38,8 @@ Item {
 
                 spacing: 70
 
-                ContentArea {
+                ContentArea
+                {
                     id: mainLeftArea
 
                     Layout.fillHeight: true
@@ -45,24 +47,25 @@ Item {
 
                     bgColor: "#EFF7FF"
 
-                    ColumnLayout {
-
+                    ColumnLayout
+                    {
                         anchors.fill: parent
                         anchors.topMargin: 30
                         anchors.bottomMargin: 30
                         anchors.leftMargin: 30
                         anchors.rightMargin: 30
+
                         spacing: 30
 
-                        Item {
-
+                        Item
+                        {
                             id: recArea
+
                             Layout.fillHeight: true
                             Layout.fillWidth: true
 
-
-                            ColumnLayout {
-
+                            ColumnLayout
+                            {
                                 anchors.fill: parent
                                 anchors.topMargin: 30
                                 anchors.bottomMargin: 30
@@ -71,8 +74,8 @@ Item {
 
                                 spacing: 10
 
-                                Text {
-
+                                Text
+                                {
                                     Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
                                     text: "Запись видео"
@@ -83,7 +86,8 @@ Item {
                                     verticalAlignment: Text.AlignVCenter
                                 }
 
-                                CustomButton {
+                                CustomButton
+                                {
                                     id: buttonVideoStart
 
                                     Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
@@ -95,19 +99,22 @@ Item {
 
                                     imageUrl: "qrc:/Images/video.png"
                                     buttonText: "Начать"
-                                }
 
+                                    onClicked: app.openVideoWindow(te.text)
+                                }
                             }
                         }
 
-                        Item {
+                        Item
+                        {
                             id: timerArea
+
                             Layout.fillHeight: true
                             Layout.fillWidth: true
 
 
-                            ColumnLayout {
-
+                            ColumnLayout
+                            {
                                 anchors.fill: parent
                                 anchors.topMargin: 30
                                 anchors.bottomMargin: 30
@@ -116,8 +123,8 @@ Item {
 
                                 spacing: 10
 
-                                Text {
-
+                                Text
+                                {
                                     Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
                                     text: "Длительность видео"
@@ -128,8 +135,8 @@ Item {
                                     verticalAlignment: Text.AlignVCenter
                                 }
 
-                                RowLayout {
-
+                                RowLayout
+                                {
                                     Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
                                     Layout.fillHeight: true
@@ -137,8 +144,8 @@ Item {
 
                                     spacing: 30
 
-                                    TextEdit {
-
+                                    TextEdit
+                                    {
                                         id: te
 
                                         width: 100
@@ -154,7 +161,8 @@ Item {
 
                                     }
 
-                                    CustomButton {
+                                    CustomButton
+                                    {
                                         id: buttonSetTimer
 
                                         Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
@@ -170,18 +178,18 @@ Item {
                                         buttonText: "Установить"
                                     }
                                 }
-
                             }
                         }
 
-                        Item {
-                        id: mainBottomtArea
+                        Item
+                        {
+                            id: mainBottomtArea
 
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
+                            Layout.fillHeight: true
+                            Layout.fillWidth: true
 
-                            ColumnLayout {
-
+                            ColumnLayout
+                            {
                                 anchors.fill: parent
                                 anchors.topMargin: 30
                                 anchors.bottomMargin: 30
@@ -190,8 +198,8 @@ Item {
 
                                 spacing: 10
 
-                                Text {
-
+                                Text
+                                {
                                     Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
                                     text: "Загрузить видео"
@@ -202,9 +210,8 @@ Item {
                                     verticalAlignment: Text.AlignVCenter
                                 }
 
-
-                                RowLayout {
-
+                                RowLayout
+                                {
                                     Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
                                     Layout.fillHeight: true
@@ -212,71 +219,71 @@ Item {
 
                                     spacing: 30
 
-                                        CustomButton {
-                                            id: buttonChoose
+                                    CustomButton
+                                    {
+                                        id: buttonChoose
 
-                                            Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+                                        Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
-                                            border_width: 2
+                                        border_width: 2
 
-                                            buttonColorPressed: "#1163ae"
-                                            buttonColorHover: "#136ec1"
-                                            buttonColor: "white"//"#0085FF"
-                                            buttonTextColor: "black"
+                                        buttonColorPressed: "#1163ae"
+                                        buttonColorHover: "#136ec1"
+                                        buttonColor: "white"//"#0085FF"
+                                        buttonTextColor: "black"
 
-                                            imageUrl: "qrc:/Images/folder.png"
-                                            buttonText: "Выбрать"
-                                        }
+                                        imageUrl: "qrc:/Images/folder.png"
+                                        buttonText: "Выбрать"
+                                    }
 
-                                        CustomButton {
-                                            id: buttonProcessing
+                                    CustomButton
+                                    {
+                                        id: buttonProcessing
 
-                                            Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+                                        Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
-                                            buttonColorPressed: "#1163ae"
-                                            buttonColorHover: "#136ec1"
-                                            buttonColor: "#0085FF"
-                                            buttonTextColor: "white"
+                                        buttonColorPressed: "#1163ae"
+                                        buttonColorHover: "#136ec1"
+                                        buttonColor: "#0085FF"
+                                        buttonTextColor: "white"
 
-                                            imageUrl: "qrc:/Images/processing.png"
-                                            buttonText: "Обработать"
+                                        imageUrl: "qrc:/Images/processing.png"
+                                        buttonText: "Обработать"
 
-                                            onClicked: mainLoader.source = "qrc:/UI/ChartWindow/ChartScreen.qml"
-                                        }
+                                        onClicked: mainLoader.source = "qrc:/UI/ChartWindow/ChartScreen.qml"
                                     }
                                 }
-
+                            }
                         }
                     }
                 }
 
 
 //------------------------------ Studio3D content --------------------------
-                Item {
-
+                Item
+                {
                     id: studio3dArea
 
                     Layout.fillHeight: true
                     Layout.fillWidth: true
 
-                    Custom3dStudio{
-
+                    Custom3dStudio
+                    {
                         presentation_path: "qrc:/Studio3d/MaskScene/presentations/MaskScene.uip"
-
                     }
                 }
 //------------------------------ end of Studio3D content --------------------------
-
-
-
             }
         }
     }
 
-}
+    Connections
+    {
+        target: app
 
-/*##^##
-Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.5;height:1080;width:1920}
+        onSendToQml:
+        {
+            mainLoader.source = "qrc:/UI/ChartWindow/ChartScreen.qml"
+        }
+    }
 }
-##^##*/
