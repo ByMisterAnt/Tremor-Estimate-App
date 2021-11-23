@@ -4,8 +4,8 @@ import QtQuick.Layouts 1.1
 import QtCharts 2.15
 import  "../../Elements"
 
-Item {
-
+Item
+{
     id: chartWindow
 
     property string file_path: file_path
@@ -13,7 +13,8 @@ Item {
     width: 1280
     height: 720
 
-    Rectangle{
+    Rectangle
+    {
 
         id: backSide
 
@@ -21,8 +22,8 @@ Item {
 
         color: "#EFF7FF"
 
-
-        RowLayout {
+        RowLayout
+        {
 
             anchors.fill: parent
             anchors.topMargin: 38
@@ -32,8 +33,8 @@ Item {
 
             spacing: 40
 
-            ContentArea {
-
+            ContentArea
+            {
                 id: leftArea
 
                 Layout.fillHeight: true
@@ -41,10 +42,12 @@ Item {
 
                 bgColor: "white"
 
-                ColumnLayout {
+                ColumnLayout
+                {
                     anchors.fill: parent
 
-                    CustomSplineChart {
+                    CustomSplineChart
+                    {
 
                         id: tremorChart
 
@@ -56,7 +59,8 @@ Item {
                         chartTitle: "График тремора"
                     }
 
-                    RowLayout {
+                    RowLayout
+                    {
 
                         Layout.bottomMargin: 40
                         Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
@@ -66,7 +70,8 @@ Item {
 
                         spacing: parent.width < 580 ? 10 : parent.width/4
 
-                        CustomButton {
+                        CustomButton
+                        {
                             id: buttonMainMenu
 
                             x: 1000
@@ -83,7 +88,8 @@ Item {
                             onClicked: mainLoader.source = "qrc:/UI/MainWindow/MainScreen.qml"
                         }
 
-                        CustomButton {
+                        CustomButton
+                        {
 
                             id: buttonSave
 
@@ -102,7 +108,8 @@ Item {
                 }
             }
 
-            ContentArea {
+            ContentArea
+            {
 
                 id: rightArea
 
@@ -111,13 +118,13 @@ Item {
 
                 bgColor: "white"
 
-                ColumnLayout {
+                ColumnLayout
+                {
 
                     anchors.fill: parent
 
-
-
-                    ScrollView{
+                    ScrollView
+                    {
 
                         id: scrollView
 
@@ -128,7 +135,8 @@ Item {
                         Layout.fillHeight: true
                         Layout.fillWidth: true
 
-                        CustomTextArea{
+                        CustomTextArea
+                        {
 
                             id: textComment
 
@@ -138,7 +146,8 @@ Item {
                         }
                     }
 
-                    RowLayout {
+                    RowLayout
+                    {
 
                         Layout.bottomMargin: 40
                         Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
@@ -148,7 +157,8 @@ Item {
 
                         spacing: parent.width < 580 ? 10 : parent.width/4
 
-                        CustomButton {
+                        CustomButton
+                        {
                             id: buttonSaveText
 
                             buttonColorPressed: "#1163ae"
@@ -162,7 +172,8 @@ Item {
                             onClicked: app.writeTextToFile(textComment.value, "txt")
                         }
 
-                        CustomButton {
+                        CustomButton
+                        {
 
                             id: buttonClear
 
@@ -176,30 +187,23 @@ Item {
 
                             onClicked:  textComment.value = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
                         }
-
                     }
                 }
             }
-
         }
-
     }
 
-    Connections {
-            target: app
-
-            onSendToQml: {
-
-            }
-        }
+    Connections
+    {
+        target: app
+    }
 
 
-    function saveElementImg(elementId) {
+    function saveElementImg(elementId)
+    {
 
         file_path = app.choosePath("img")
 
         elementId.grabToImage(function(result) { result.saveToFile(file_path); });
     }
-
-
 }

@@ -5,8 +5,9 @@
 
 class VideoCapture;
 
-namespace Ui {
-class MainWindow;
+namespace Ui
+{
+    class MainWindow;
 }
 
 class MainWindow : public QMainWindow
@@ -14,19 +15,25 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+
     explicit MainWindow(QWidget *parent = nullptr);
+
     ~MainWindow();
 
 signals:
+
     void goToNext(QString);
 
 private slots:
+
     void on_pushButton_clicked();
+
     void closeWindow();
 
 private:
 
     Ui::MainWindow *ui;
+
     VideoCapture *mOpenCV_videoCapture;
 };
 

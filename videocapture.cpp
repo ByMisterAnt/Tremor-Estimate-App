@@ -16,47 +16,62 @@ void VideoCapture::run()
             mVideoCap >> mFrame;
 
             cv::cvtColor(mFrame, img, cv::COLOR_BGR2HSV);
+
             cv::inRange(img, cv::Scalar(94, 122, 95), cv::Scalar(150, 255, 255), mFrame);
+
             cv::bitwise_and(img, img, result, mFrame);
 
             cv::cvtColor(result, result, cv::COLOR_HSV2BGR);
+
             cv::Moments moment = cv::moments(mFrame, 1);
 
             dM01 = moment.m01;
+
             dM10 = moment.m10;
+
             dArea = moment.m00;
 
-            if (dArea > 150) {
+            if (dArea > 150)
+            {
 
                 x = dM10 / dArea;
+
                 y = dM01 / dArea;
+
                 recTime += 1;
 
                 X.push_back(std::abs(x - x0) * 0.179);
+
                 Y.push_back(std::abs(y - y0) * 0.179);
+
                 time.push_back(recTime * 0.016);
 
                 x0 = x;
+
                 y0 = y;
             }
 
             if(recTime * 0.16 >= stopTime)
             {
                 qDebug() << "exit";
+
                 break;
             }
 
             if (!result.empty())
             {
                 mPixmap = cvMatToQPixmap(result);
+
                 emit newPixmapCaptured();
             }
+
             result = NULL;
         }
 
         out.open("tremor.txt");
 
-        for(auto i : X) {
+        for(auto i : X)
+        {
             out << i << std::endl;
         }
 
@@ -65,8 +80,11 @@ void VideoCapture::run()
         qDebug()<<"ЗАКРОЙ";
 
         recTime = 0;
+
         X.clear();
+
         Y.clear();
+
         time.clear();
 
         emit endRecording();

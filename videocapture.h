@@ -22,29 +22,42 @@ class VideoCapture : public QThread
     Q_OBJECT
 
 public:
+
     VideoCapture(QObject *parent = nullptr);
+
     QPixmap pixmap() const
     {
         return mPixmap;
     }
 
 signals:
+
     void newPixmapCaptured();
+
     void endRecording();
 
 protected:
+
     void run();
 
 private:
+
     QPixmap mPixmap;
+
     cv::Mat mFrame, img, result;
+
     cv::VideoCapture mVideoCap;
+
     double dM01, dM10, dArea, x, y;
+
     double stopTime = 15, recTime = 0, x0 = 1920 / 2 * 0.179, y0 = 1080 / 2 * 0.179;
+
     QVector <double> X, Y, time;
+
     std::ofstream out;
 
     QImage  cvMatToQImage( const cv::Mat &inMat );
+
     QPixmap cvMatToQPixmap( const cv::Mat &inMat );
 };
 

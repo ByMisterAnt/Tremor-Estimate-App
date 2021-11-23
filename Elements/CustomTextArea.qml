@@ -2,7 +2,8 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 
-FocusScope {
+FocusScope
+{
     id: focusScope;
 
     height: textInput.paintedHeight + (2 * textInput.anchors.topMargin);
@@ -12,26 +13,29 @@ FocusScope {
     property alias textColor: textInput.color;
 
 
-    Rectangle {
+    Rectangle
+    {
         id: background;
+
         anchors.fill: parent;
+
         color: "#F4F6F8";
         radius: 5;
         antialiasing: true;
-        border {
+
+        border
+        {
             width: 3;
             color: (focusScope.activeFocus ? "red" : "steelblue");
         }
     }
 
-    TextEdit {
+    TextEdit
+    {
         id: textInput;
-        focus: true
-        selectByMouse: true
-        font.pointSize: 20;
-        wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere;
-        color: "black";
-        anchors {
+
+        anchors
+        {
             top: parent.top;
             topMargin: 10;
             left: parent.left;
@@ -39,11 +43,20 @@ FocusScope {
             right: parent.right;
             rightMargin: 10;
         }
-    }
-    MouseArea {
-        visible: (!focusScope.activeFocus);
-        anchors.fill: parent
-        onClicked: { textInput.forceActiveFocus(); }
+
+        focus: true
+        selectByMouse: true
+        font.pointSize: 20;
+        wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere;
+        color: "black";   
     }
 
+    MouseArea
+    {
+        anchors.fill: parent
+
+        visible: (!focusScope.activeFocus); 
+
+        onClicked: { textInput.forceActiveFocus(); }
+    }
 }

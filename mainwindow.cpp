@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     mOpenCV_videoCapture = new VideoCapture(this);
 
     connect(mOpenCV_videoCapture, &VideoCapture::newPixmapCaptured, this, [&]()
@@ -20,7 +21,9 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     mOpenCV_videoCapture->terminate();
+
     delete mOpenCV_videoCapture;
+
     delete ui;
 }
 
@@ -31,7 +34,6 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::closeWindow()
 {
-    // load Chart Screen in qml
     emit goToNext(QString("./gg.txt"));
 
     MainWindow::~MainWindow();
