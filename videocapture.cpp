@@ -88,6 +88,7 @@ void VideoCapture::run()
         time.clear();
 
         emit endRecording();
+        emit sendPath(QString("tremor.txt"));
     }
 
 }

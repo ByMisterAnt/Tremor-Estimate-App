@@ -27,11 +27,8 @@ protected:
     virtual void mouseDoubleClickEvent( QMouseEvent* event );
     virtual void wheelEvent( QWheelEvent *event );
 
-    virtual void timerEvent(QTimerEvent *event);
-
 private:
     QCustomPlot*         m_CustomPlot;
-    int                  m_timerId;
 
 private slots:
     void graphClicked( QCPAbstractPlottable* plottable );

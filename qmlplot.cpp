@@ -3,7 +3,7 @@
 #include <QDebug>
 
 CustomPlotItem::CustomPlotItem( QQuickItem* parent ) : QQuickPaintedItem( parent )
-    , m_CustomPlot( nullptr ), m_timerId( 0 )
+    , m_CustomPlot( nullptr )
 {
     setFlag( QQuickItem::ItemHasContents, true );
 
@@ -12,6 +12,7 @@ CustomPlotItem::CustomPlotItem( QQuickItem* parent ) : QQuickPaintedItem( parent
     connect( this, &QQuickPaintedItem::widthChanged, this, &CustomPlotItem::updateCustomPlotSize );
 
     connect( this, &QQuickPaintedItem::heightChanged, this, &CustomPlotItem::updateCustomPlotSize );
+
 }
 
 CustomPlotItem::~CustomPlotItem()
@@ -20,10 +21,7 @@ CustomPlotItem::~CustomPlotItem()
 
     m_CustomPlot = nullptr;
 
-    if(m_timerId != 0)
-    {
-        killTimer(m_timerId);
-    }
+
 }
 
 void CustomPlotItem::initCustomPlot()
@@ -46,11 +44,13 @@ void CustomPlotItem::initCustomPlot()
 
     m_CustomPlot ->setInteractions( QCP::iRangeDrag | QCP::iRangeZoom );
 
-    startTimer(500);
+
 
     connect( m_CustomPlot, &QCustomPlot::afterReplot, this, &CustomPlotItem::onCustomReplot );
 
     m_CustomPlot->replot();
+
+    m_CustomPlot->graph(0)->addData({1,4},{1,4});
 }
 
 
@@ -97,20 +97,6 @@ void CustomPlotItem::wheelEvent( QWheelEvent *event )
     routeWheelEvents( event );
 }
 
-void CustomPlotItem::timerEvent(QTimerEvent *event)
-{
-    static double t, U;
-
-    U = ((double)rand() / RAND_MAX) * 5;
-
-    m_CustomPlot->graph(0)->addData(t, U);
-
-    qDebug() << Q_FUNC_INFO << QString("Adding dot t = %1, S = %2").arg(t).arg(U);
-
-    t++;
-
-    m_CustomPlot->replot();
-}
 
 void CustomPlotItem::graphClicked( QCPAbstractPlottable* plottable )
 {
