@@ -1,6 +1,7 @@
 #include "qmlplot.h"
 #include "qcustomplot.h"
 #include <QDebug>
+#include <QFile>
 
 CustomPlotItem::CustomPlotItem( QQuickItem* parent ) : QQuickPaintedItem( parent )
     , m_CustomPlot( nullptr )
@@ -12,6 +13,20 @@ CustomPlotItem::CustomPlotItem( QQuickItem* parent ) : QQuickPaintedItem( parent
     connect( this, &QQuickPaintedItem::widthChanged, this, &CustomPlotItem::updateCustomPlotSize );
 
     connect( this, &QQuickPaintedItem::heightChanged, this, &CustomPlotItem::updateCustomPlotSize );
+
+    QFile file("tremor.txt");
+          if(file.open(QIODevice::ReadOnly |QIODevice::Text))
+          {
+              while(!file.atEnd())
+              {
+                  QString str = file.readLine();
+                  QStringList lst = str.split(",");
+
+                  time.push_back(lst.at(0).toDouble());
+                  X.push_back(lst.at(1).toDouble());
+                  Y.push_back(lst.at(2).toDouble());
+              }
+          }
 
 }
 
@@ -34,13 +49,13 @@ void CustomPlotItem::initCustomPlot()
 
     m_CustomPlot->graph( 0 )->setPen( QPen( Qt::red ) );
 
-    m_CustomPlot->xAxis->setLabel( "t" );
+    m_CustomPlot->xAxis->setLabel( "Время, с" );
 
-    m_CustomPlot->yAxis->setLabel( "S" );
+    m_CustomPlot->yAxis->setLabel( "Значение ошибки, мм" );
 
-    m_CustomPlot->xAxis->setRange( 0, 10 );
+    m_CustomPlot->xAxis->setRange( 0, 16 );
 
-    m_CustomPlot->yAxis->setRange( 0, 5 );
+    m_CustomPlot->yAxis->setRange( 0, 3 );
 
     m_CustomPlot ->setInteractions( QCP::iRangeDrag | QCP::iRangeZoom );
 
@@ -50,7 +65,16 @@ void CustomPlotItem::initCustomPlot()
 
     m_CustomPlot->replot();
 
-    m_CustomPlot->graph(0)->addData({1,4},{1,4});
+    m_CustomPlot->addGraph();
+    m_CustomPlot->graph(0)->addData(time,X);
+    m_CustomPlot->graph(0)->setPen(QPen("red"));
+    m_CustomPlot->addGraph();
+    m_CustomPlot->graph(1)->addData(time,Y);
+    m_CustomPlot->graph(1)->setPen(QPen("blue"));
+
+    time.clear();
+    X.clear();
+    Y.clear();
 }
 
 

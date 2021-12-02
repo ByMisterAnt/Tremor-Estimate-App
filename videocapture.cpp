@@ -44,7 +44,7 @@ void VideoCapture::run()
 
                 Y.push_back(std::abs(y - y0) * 0.179);
 
-                time.push_back(recTime * 0.016);
+                time.push_back(recTime * 0.18);
 
                 x0 = x;
 
@@ -70,9 +70,10 @@ void VideoCapture::run()
 
         out.open("tremor.txt");
 
-        for(auto i : X)
+        for(int i = 0; i < X.size(); i++)
         {
-            out << i << std::endl;
+
+            out << time[i] << ',' << X[i] << ',' << Y[i] << std::endl;
         }
 
         out.close();
@@ -88,7 +89,6 @@ void VideoCapture::run()
         time.clear();
 
         emit endRecording();
-        emit sendPath(QString("tremor.txt"));
     }
 
 }

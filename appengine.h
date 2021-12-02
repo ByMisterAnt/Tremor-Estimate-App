@@ -27,6 +27,7 @@ public slots:
     void openVideoWindow(QString time);
 
     void openNextWindow(QString path);
+
 };
 
 #endif // APPENGINE_H

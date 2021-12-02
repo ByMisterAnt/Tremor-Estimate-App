@@ -36,8 +36,6 @@ signals:
 
     void endRecording();
 
-    QString sendPath(QString path);
-
 protected:
 
     void run();

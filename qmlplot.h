@@ -2,6 +2,8 @@
 #define QMLPLOT_H
 
 #include <QtQuick>
+#include <QVector>
+
 class QCustomPlot;
 class QCPAbstractPlottable;
 
@@ -29,6 +31,7 @@ protected:
 
 private:
     QCustomPlot*         m_CustomPlot;
+    QVector<double> time, X, Y;
 
 private slots:
     void graphClicked( QCPAbstractPlottable* plottable );
