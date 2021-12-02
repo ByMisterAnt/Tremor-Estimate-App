@@ -46,7 +46,7 @@ Item
                 {
                     anchors.fill: parent
 
-                    CustomSplineChart
+                    /*CustomSplineChart
                     {
 
                         id: tremorChart
@@ -57,6 +57,15 @@ Item
                         Layout.fillWidth: true
 
                         chartTitle: "График тремора"
+                    }*/
+                    PlotView
+                    {
+                        id: tremorChart
+
+                        Layout.margins: 40
+                        Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
                     }
 
                     RowLayout
