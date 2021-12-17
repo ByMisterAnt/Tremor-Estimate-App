@@ -1,10 +1,13 @@
 #include "videocapture.h"
+#include <QFileDialog>
+#include <QFile>
 #include <QDebug>
 
 VideoCapture::VideoCapture(QObject *parent)
     : QThread { parent }
     , mVideoCap{ID_CAMERA}
 {
+    file_path = QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(), tr("TXT(*.txt);;LOG(*.log)"));
 }
 
 void VideoCapture::run()
@@ -68,9 +71,9 @@ void VideoCapture::run()
             result = NULL;
         }
 
-        out.open("tremor.txt");
+        out.open(file_path.toStdString());
 
-        for(int i = 0; i < X.size(); i++)
+        for(int i = 4; i < X.size(); i++)
         {
 
             out << time[i] << ',' << X[i] << ',' << Y[i] << std::endl;

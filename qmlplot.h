@@ -32,6 +32,7 @@ protected:
 private:
     QCustomPlot*         m_CustomPlot;
     QVector<double> time, X, Y;
+    QString file_path;
 
 private slots:
     void graphClicked( QCPAbstractPlottable* plottable );

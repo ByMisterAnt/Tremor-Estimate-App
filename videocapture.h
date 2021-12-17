@@ -54,6 +54,8 @@ private:
 
     QVector <double> X, Y, time;
 
+    QString file_path;
+
     std::ofstream out;
 
     QImage  cvMatToQImage( const cv::Mat &inMat );

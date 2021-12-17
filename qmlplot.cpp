@@ -14,7 +14,8 @@ CustomPlotItem::CustomPlotItem( QQuickItem* parent ) : QQuickPaintedItem( parent
 
     connect( this, &QQuickPaintedItem::heightChanged, this, &CustomPlotItem::updateCustomPlotSize );
 
-    QFile file("tremor.txt");
+    file_path = QFileDialog::getOpenFileName(NULL, tr("Choose a filename to save under"), QString(), tr("TXT(*.txt);;LOG(*.log)"));
+    QFile file(file_path);
           if(file.open(QIODevice::ReadOnly |QIODevice::Text))
           {
               while(!file.atEnd())
