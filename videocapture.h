@@ -50,7 +50,7 @@ private:
 
     double dM01, dM10, dArea, x, y;
 
-    double stopTime = 15, recTime = 0, x0 = 1920 / 2 * 0.179, y0 = 1080 / 2 * 0.179;
+    double stopTime = 50, recTime = 0, x0 = 1920 / 2 * 0.179, y0 = 1080 / 2 * 0.179;
 
     QVector <double> X, Y, time;
 
