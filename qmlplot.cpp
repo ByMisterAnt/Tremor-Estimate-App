@@ -1,9 +1,10 @@
 #include "qmlplot.h"
 #include "qcustomplot.h"
 #include <QDebug>
+#include <QFile>
 
 CustomPlotItem::CustomPlotItem( QQuickItem* parent ) : QQuickPaintedItem( parent )
-    , m_CustomPlot( nullptr ), m_timerId( 0 )
+    , m_CustomPlot( nullptr )
 {
     setFlag( QQuickItem::ItemHasContents, true );
 
@@ -12,6 +13,22 @@ CustomPlotItem::CustomPlotItem( QQuickItem* parent ) : QQuickPaintedItem( parent
     connect( this, &QQuickPaintedItem::widthChanged, this, &CustomPlotItem::updateCustomPlotSize );
 
     connect( this, &QQuickPaintedItem::heightChanged, this, &CustomPlotItem::updateCustomPlotSize );
+
+    file_path = QFileDialog::getOpenFileName(NULL, tr("Choose a filename to save under"), QString(), tr("TXT(*.txt);;LOG(*.log)"));
+    QFile file(file_path);
+          if(file.open(QIODevice::ReadOnly |QIODevice::Text))
+          {
+              while(!file.atEnd())
+              {
+                  QString str = file.readLine();
+                  QStringList lst = str.split(",");
+
+                  time.push_back(lst.at(0).toDouble());
+                  X.push_back(lst.at(1).toDouble());
+                  Y.push_back(lst.at(2).toDouble());
+              }
+          }
+
 }
 
 CustomPlotItem::~CustomPlotItem()
@@ -20,10 +37,7 @@ CustomPlotItem::~CustomPlotItem()
 
     m_CustomPlot = nullptr;
 
-    if(m_timerId != 0)
-    {
-        killTimer(m_timerId);
-    }
+
 }
 
 void CustomPlotItem::initCustomPlot()
@@ -36,21 +50,32 @@ void CustomPlotItem::initCustomPlot()
 
     m_CustomPlot->graph( 0 )->setPen( QPen( Qt::red ) );
 
-    m_CustomPlot->xAxis->setLabel( "t" );
+    m_CustomPlot->xAxis->setLabel( "Время, с" );
 
-    m_CustomPlot->yAxis->setLabel( "S" );
+    m_CustomPlot->yAxis->setLabel( "Значение ошибки, мм" );
 
-    m_CustomPlot->xAxis->setRange( 0, 10 );
+    m_CustomPlot->xAxis->setRange( 0, 16 );
 
-    m_CustomPlot->yAxis->setRange( 0, 5 );
+    m_CustomPlot->yAxis->setRange( 0, 3 );
 
     m_CustomPlot ->setInteractions( QCP::iRangeDrag | QCP::iRangeZoom );
 
-    startTimer(500);
+
 
     connect( m_CustomPlot, &QCustomPlot::afterReplot, this, &CustomPlotItem::onCustomReplot );
 
     m_CustomPlot->replot();
+
+    m_CustomPlot->addGraph();
+    m_CustomPlot->graph(0)->addData(time,X);
+    m_CustomPlot->graph(0)->setPen(QPen("red"));
+    m_CustomPlot->addGraph();
+    m_CustomPlot->graph(1)->addData(time,Y);
+    m_CustomPlot->graph(1)->setPen(QPen("blue"));
+
+    time.clear();
+    X.clear();
+    Y.clear();
 }
 
 
@@ -97,20 +122,6 @@ void CustomPlotItem::wheelEvent( QWheelEvent *event )
     routeWheelEvents( event );
 }
 
-void CustomPlotItem::timerEvent(QTimerEvent *event)
-{
-    static double t, U;
-
-    U = ((double)rand() / RAND_MAX) * 5;
-
-    m_CustomPlot->graph(0)->addData(t, U);
-
-    qDebug() << Q_FUNC_INFO << QString("Adding dot t = %1, S = %2").arg(t).arg(U);
-
-    t++;
-
-    m_CustomPlot->replot();
-}
 
 void CustomPlotItem::graphClicked( QCPAbstractPlottable* plottable )
 {

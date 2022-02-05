@@ -39,9 +39,15 @@ HEADERS += \
 FORMS += \
     mainwindow.ui
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../../../opencv/build/x64/vc15/lib/ -lopencv_world454
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../../../opencv/build/x64/vc15/lib/ -lopencv_world454d
-else:unix: LIBS += -L$$PWD/../../../../../../opencv/build/x64/vc15/lib/ -lopencv_world454
+win32:RC_FILE = iconFile.rc
 
-INCLUDEPATH += $$PWD/../../../../../../opencv/build/include
-DEPENDPATH += $$PWD/../../../../../../opencv/build/include
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../opencv/build/x64/vc15/lib/ -lopencv_world454
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../opencv/build/x64/vc15/lib/ -lopencv_world454d
+else:unix: LIBS += -L$$PWD/../opencv/build/x64/vc15/lib/ -lopencv_world454
+
+INCLUDEPATH += $$PWD/../opencv/build/include/
+DEPENDPATH += $$PWD/../opencv/build/include/
+
+DISTFILES += \
+    app_icon.ico \
+    iconFile.rc

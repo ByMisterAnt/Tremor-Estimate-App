@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <fstream>
 #include <algorithm>
+#include <QElapsedTimer>
 
 #define ID_CAMERA 0
 
@@ -42,6 +43,8 @@ protected:
 
 private:
 
+    QElapsedTimer timer;
+
     QPixmap mPixmap;
 
     cv::Mat mFrame, img, result;
@@ -53,6 +56,8 @@ private:
     double stopTime = 15, recTime = 0, x0 = 1920 / 2 * 0.179, y0 = 1080 / 2 * 0.179;
 
     QVector <double> X, Y, time;
+
+    QString file_path;
 
     std::ofstream out;
 

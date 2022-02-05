@@ -8,6 +8,8 @@ Item
 
     id: mainScreen
 
+    visible: True
+
     Rectangle
     {
         id: mainBackSide
@@ -100,7 +102,15 @@ Item
                                     imageUrl: "qrc:/Images/video.png"
                                     buttonText: "Начать"
 
-                                    onClicked: app.openVideoWindow(te.text)
+                                    onClicked:
+                                    {
+
+                                        //mainScreen.visible = false;
+
+                                        app.openVideoWindow(te.text);
+
+                                    }
+
                                 }
                             }
                         }

@@ -9,10 +9,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     mOpenCV_videoCapture = new VideoCapture(this);
-
     connect(mOpenCV_videoCapture, &VideoCapture::newPixmapCaptured, this, [&]()
     {
-        ui->opencvFrame->setPixmap(mOpenCV_videoCapture->pixmap().scaled(500,500));
+        ui->opencvFrame->setPixmap(mOpenCV_videoCapture->pixmap().scaled(1258, 663));
     });
 
     connect(mOpenCV_videoCapture, &VideoCapture::endRecording, this, &MainWindow::closeWindow);

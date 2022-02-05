@@ -38,7 +38,7 @@ Item
         anchors.fill: parent
 
         color:
-        {
+        {"white"
             if (btnMouse.containsMouse)
             {
                 if(btnMouse.pressed)
@@ -47,13 +47,15 @@ Item
                 }
                 else
                 {
-                    return  colorAnim.start()
+                    colorAnim.start()
+                    return  btnRectangle.color
                 }
             }
 
             else
             {
-                return unhoverAnim.start()
+                unhoverAnim.start()
+                return btnRectangle.color
 
             }
         }

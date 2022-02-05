@@ -24,17 +24,17 @@ QString appEngine::choosePath(QString typeOfFile)
 {
     if (typeOfFile == "img")
     {
-        return QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(),                                                  tr("PNG(*.png);;JPG(*.jpg);;BMP(*.bmp);;All Files(*)"));
+        return QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(), tr("PNG(*.png);;JPG(*.jpg);;BMP(*.bmp);;All Files(*)"));
     }
 
     else if (typeOfFile == "txt")
     {
-        return QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(),                                                      tr("TXT(*.txt);;LOG(*.log)"));
+        return QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(), tr("TXT(*.txt);;LOG(*.log)"));
     }
 
     else
     {
-        return QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(),                                                      tr("All Files(*)"));
+        return QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(), tr("All Files(*)"));
     }
 }
 
@@ -51,3 +51,4 @@ void appEngine::openNextWindow(QString path)
 {
     emit sendToQml(QString("./gg.txt"));
 }
+

@@ -2,6 +2,8 @@
 #define QMLPLOT_H
 
 #include <QtQuick>
+#include <QVector>
+
 class QCustomPlot;
 class QCPAbstractPlottable;
 
@@ -27,11 +29,10 @@ protected:
     virtual void mouseDoubleClickEvent( QMouseEvent* event );
     virtual void wheelEvent( QWheelEvent *event );
 
-    virtual void timerEvent(QTimerEvent *event);
-
 private:
     QCustomPlot*         m_CustomPlot;
-    int                  m_timerId;
+    QVector<double> time, X, Y;
+    QString file_path;
 
 private slots:
     void graphClicked( QCPAbstractPlottable* plottable );
