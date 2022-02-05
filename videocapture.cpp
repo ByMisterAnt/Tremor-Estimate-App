@@ -14,6 +14,9 @@ void VideoCapture::run()
 {
     if (mVideoCap.isOpened())
     {
+
+        timer.start();
+
         while (true)
         {
             mVideoCap >> mFrame;
@@ -27,34 +30,38 @@ void VideoCapture::run()
             cv::cvtColor(result, result, cv::COLOR_HSV2BGR);
 
             cv::Moments moment = cv::moments(mFrame, 1);
-
+            /*
+             безсмысленное присваивание переменных переменным в цикле
             dM01 = moment.m01;
 
             dM10 = moment.m10;
 
             dArea = moment.m00;
+            */
 
-            if (dArea > 150)
+            if (moment.m00 > 150)
             {
 
-                x = dM10 / dArea;
+                x = moment.m10 / moment.m00;
 
-                y = dM01 / dArea;
+                y = moment.m01 / moment.m00;
 
-                recTime += 1;
+                recTime = (double) timer.elapsed() * 0.001;
+
+                // 0.179 коэффициент для перевода из пикселей в миллиметры
 
                 X.push_back(std::abs(x - x0) * 0.179);
 
                 Y.push_back(std::abs(y - y0) * 0.179);
 
-                time.push_back(recTime * 0.18);
+                time.push_back(recTime);
 
                 x0 = x;
 
                 y0 = y;
             }
 
-            if(recTime * 0.16 >= stopTime)
+            if(recTime >= stopTime)
             {
                 qDebug() << "exit";
 
