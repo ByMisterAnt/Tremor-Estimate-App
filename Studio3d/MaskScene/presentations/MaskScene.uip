@@ -39,16 +39,16 @@
 				<Add ref="#Light_u3119" />
 				<Add ref="#__Container_u19733" name="__Container" />
 				<Add ref="#materials/None_u11192" name="materials/None" />
-				<State id="Scene-Slide1_u12537" name="Slide1" playmode="PingPong" >
+				<State id="Scene-Slide1_u12537" name="Slide1" playmode="Looping" >
 					<Set ref="#Layer_u57054" endtime="19950" />
 					<Set ref="#Camera_u36901" endtime="19950" />
 					<Set ref="#Light_u3119" endtime="19950" />
 					<Add ref="#medfbx_u38104" name="medfbx" endtime="19950" importfile="../models/medfbx/medfbx.import" scale="0.5 0.5 0.5" sourcepath="../models/medfbx/medfbx.import" />
 					<Add ref="#Light_u25968" endtime="19950" importfile="../models/medfbx/medfbx.import" lightambient="0 0.317647 1 1" lightdiffuse="0.270588 1 0.952941 1" lightspecular="0.0823529 0 1 1" position="999.045 -257.443 358.969" />
 					<Add ref="#Group_u43462" name="Group" endtime="19950" >
-						<AnimationTrack property="rotation.x" type="EaseInOut" >0 0 100 100 19.95 0 100 100</AnimationTrack>
-						<AnimationTrack property="rotation.y" type="EaseInOut" >0 0 100 100 19.95 1080 100 100</AnimationTrack>
-						<AnimationTrack property="rotation.z" type="EaseInOut" >0 0 100 100 19.95 0 100 100</AnimationTrack>
+						<AnimationTrack property="rotation.x" type="Linear" >0 0 19.95 0</AnimationTrack>
+						<AnimationTrack property="rotation.y" type="Linear" >0 0 19.95 1080</AnimationTrack>
+						<AnimationTrack property="rotation.z" type="Linear" >0 0 19.95 0</AnimationTrack>
 					</Add>
 					<Add ref="#had_2_Cylinder.002_u15059" endtime="19950" importfile="../models/medfbx/medfbx.import" />
 					<Add ref="#None_u50446" name="None" endtime="19950" referencedmaterial="#materials/None_u11192" sourcepath="../materials/None.materialdef" />
