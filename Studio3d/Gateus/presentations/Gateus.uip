@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UIP version="7" >
+	<Project >
+		<ProjectSettings author="" company="" presentationWidth="800" presentationHeight="1080" maintainAspect="False" preferKtx="False" flipCompressedTextures="False" >
+			<CustomColors count="16" >#ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff #ffffff</CustomColors>
+		</ProjectSettings>
+		<Graph >
+			<Scene id="Scene_u56073" backgroundcolor="1 1 1 1" >
+				<Layer id="Layer_u55569" variants="" >
+					<Camera id="Camera_u63301" />
+					<Group id="cadeus_u13305" variants="" importid="__import__root__" >
+						<Model id="NurbsPath.003_u62927" variants="" name="NurbsPath.003" importid="NurbsPath.003" orientation="Right Handed" position="0 0 0" rotation="90 -13.8422 -180" rotationorder="XYZr" scale="100 100 100" sourcepath="../models/cadeus/meshes/NurbsPath.003.mesh" >
+							<ReferencedMaterial id="Material_u35247" importfile="../models/cadeus/cadeus.import" importid="Material" />
+						</Model>
+					</Group>
+					<Light id="Light_u2654" />
+					<Light id="Light2_u4895" />
+					<Light id="Light3_u13152" />
+				</Layer>
+				<Material id="__Container_u51547" >
+					<Material id="materials/Material_u39311" name="Material" blendmode="Normal" diffuse="0.57047 0.497507 0.0952609 1" emissivepower="0" importfile="../models/cadeus/cadeus.import" importid="Material" opacity="100" specularamount="0" specularroughness="55.3391" />
+				</Material>
+			</Scene>
+		</Graph>
+		<Logic >
+			<State name="Master Slide" component="#Scene_u56073" >
+				<Add ref="#Layer_u55569" />
+				<Add ref="#Camera_u63301" />
+				<Add ref="#__Container_u51547" name="__Container" />
+				<Add ref="#materials/Material_u39311" name="materials/Material" />
+				<State id="Scene-Slide1_u13775" name="Slide1" playmode="Looping" >
+					<Add ref="#cadeus_u13305" name="cadeus" importfile="../models/cadeus/cadeus.import" scale="1.3 1.3 1.3" sourcepath="../models/cadeus/cadeus.import" >
+						<AnimationTrack property="rotation.x" type="Linear" >0 0 10 0</AnimationTrack>
+						<AnimationTrack property="rotation.y" type="Linear" >0 0 10 720</AnimationTrack>
+						<AnimationTrack property="rotation.z" type="Linear" >0 0 10 0</AnimationTrack>
+					</Add>
+					<Add ref="#NurbsPath.003_u62927" importfile="../models/cadeus/cadeus.import" />
+					<Add ref="#Material_u35247" name="Material" referencedmaterial="#materials/Material_u39311" sourcepath="../materials/Material.materialdef" />
+					<Add ref="#Light_u2654" name="Light" position="-352.249 0 -292.949" rotation="4 124 0" />
+					<Add ref="#Light2_u4895" name="Light2" />
+					<Add ref="#Light3_u13152" name="Light3" />
+				</State>
+			</State>
+		</Logic>
+	</Project>
+</UIP>

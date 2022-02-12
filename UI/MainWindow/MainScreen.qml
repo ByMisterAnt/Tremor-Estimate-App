@@ -279,7 +279,7 @@ Item
 
                     Custom3dStudio
                     {
-                        presentation_path: "qrc:/Studio3d/MaskScene/presentations/MaskScene.uip"
+                        presentation_path: "qrc:/Studio3d/Gateus/Gateus.uia"
                     }
                 }
 //------------------------------ end of Studio3D content --------------------------
