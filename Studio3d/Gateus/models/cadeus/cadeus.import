@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UIP Version="1" >
+	<Project Revision="1" >
+		<Graph >
+			<Group id="__import__root__" >
+				<Camera id="Camera" name="Camera" clipfar="1000" clipnear="0.1" fov="43.6028" orientation="Right Handed" orthographic="False" position="1500 700 1500" rotation="162.96 -42.2599 -155.499" rotationorder="XYZr" scale="1 1 1" />
+				<Model id="NurbsPath.003" name="NurbsPath.003" orientation="Right Handed" position="0 0 0" rotation="90 -13.8422 -180" rotationorder="XYZr" scale="100 100 100" sourcepath="meshes/NurbsPath.003.mesh" >
+					<Material id="Material" name="Material" blendmode="Normal" diffuse="0.57047 0.497507 0.0952609 1" emissivepower="0" opacity="100" specularamount="0" specularroughness="55.3391" />
+				</Model>
+				<Light id="Sun" name="Sun" brightness="2000" castshadow="False" expfade="0" lightdiffuse="0.8 0.8 0.8 1" lighttype="Directional" linearfade="0" orientation="Right Handed" position="0 0 0" rotation="-23.2177 1.03033e-15 5.01543e-15" rotationorder="XYZr" scale="1 1 1" />
+				<Light id="Sun.001" name="Sun.001" brightness="2000" castshadow="False" expfade="0" lightdiffuse="0.8 0.8 0.8 1" lighttype="Directional" linearfade="0" orientation="Right Handed" position="-6.49899e-16 -2.92689 -95.8555" rotation="25.9462 1.28233e-15 -5.56631e-15" rotationorder="XYZr" scale="1 1 1" />
+				<Light id="Sun.002" name="Sun.002" brightness="2000" castshadow="False" expfade="0" lightdiffuse="0.8 0.8 0.8 1" lighttype="Directional" linearfade="0" orientation="Right Handed" position="0 0 0" rotation="0.359302 17.5486 -34.6404" rotationorder="XYZr" scale="1 1 1" />
+			</Group>
+		</Graph>
+		<Import SrcFile="../../../../../../FUN/modelsForApps/cadeus.fbx" ImageDir="maps" MeshDir="meshes" >
+			<Mesh >
+				<Source >NurbsPath.003</Source>
+				<Dest >meshes/NurbsPath.003.mesh</Dest>
+			</Mesh>
+		</Import>
+	</Project>
+</UIP>

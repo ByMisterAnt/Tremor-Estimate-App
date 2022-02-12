@@ -16,7 +16,7 @@ SOURCES += \
 
 RESOURCES += qml.qrc \
     images.qrc \
-    scene3d.qrc
+    scene.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

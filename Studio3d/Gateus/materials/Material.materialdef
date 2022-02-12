@@ -1,12 +1,12 @@
 <MaterialData version="1.0">
 	<Property name="shaderlighting">Pixel</Property>
 	<Property name="blendmode">Normal</Property>
-	<Property name="diffuse">0.0783684 0.0783684 0.0783684 1</Property>
+	<Property name="diffuse">0.57047 0.497507 0.0952609 1</Property>
 	<Property name="specularamount">0</Property>
-	<Property name="specularroughness">95.9105</Property>
+	<Property name="specularroughness">55.3391</Property>
 	<Property name="opacity">100</Property>
 	<Property name="emissivecolor">1 1 1 1</Property>
-	<Property name="emissivepower">63.5091</Property>
+	<Property name="emissivepower">0</Property>
 	<Property name="bumpamount">0.5</Property>
 	<Property name="displaceamount">20</Property>
 	<Property name="translucentfalloff">1</Property>
@@ -19,9 +19,9 @@
 	<Property name="transparencymode">Default</Property>
 	<Property name="cullmode">Back</Property>
 	<Property name="sourcepath"></Property>
-	<Property name="importid">None</Property>
-	<Property name="importfile">../models/medfbx/medfbx.import</Property>
+	<Property name="importid">Material</Property>
+	<Property name="importfile">../models/cadeus/cadeus.import</Property>
 	<Property name="type">Material</Property>
-	<Property name="name"><![CDATA[materials/None]]></Property>
-	<Property name="path"><![CDATA[materials/None.materialdef]]></Property>
+	<Property name="name"><![CDATA[materials/Material]]></Property>
+	<Property name="path"><![CDATA[materials/Material.materialdef]]></Property>
 </MaterialData>

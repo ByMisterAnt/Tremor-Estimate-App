@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Studio3d/Gateus/materials/Material.materialdef</file>
+        <file>Studio3d/Gateus/models/cadeus/meshes/NurbsPath.003.mesh</file>
+        <file>Studio3d/Gateus/models/cadeus/cadeus.import</file>
+        <file>Studio3d/Gateus/presentations/Gateus.uip</file>
+        <file>Studio3d/Gateus/Gateus.uia</file>
+    </qresource>
+</RCC>
