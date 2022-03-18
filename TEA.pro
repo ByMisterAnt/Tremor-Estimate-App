@@ -37,6 +37,7 @@ HEADERS += \
     videocapture.h
 
 FORMS += \
+    mainwindow.ui \
     mainwindow.ui
 
 win32:RC_FILE = iconFile.rc

@@ -19,7 +19,7 @@ Window {
 
     visible: true
 
-    title: qsTr("TEA alpha 1.0")
+    title: qsTr("TEA alpha 2.0")
 
     property url filePathForPlot: "./tremor.txt"
 

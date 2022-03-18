@@ -16,6 +16,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -27,6 +28,11 @@ public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QPushButton *pushButton;
+    QFrame *frame_2;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *colorSelectLabel;
+    QRadioButton *blueColorRB;
+    QRadioButton *greenColorRB;
     QFrame *frame;
     QGridLayout *gridLayout;
     QLabel *opencvFrame;
@@ -1249,6 +1255,34 @@ public:
 
         verticalLayout->addWidget(pushButton);
 
+        frame_2 = new QFrame(centralwidget);
+        frame_2->setObjectName(QString::fromUtf8("frame_2"));
+        frame_2->setMaximumSize(QSize(16777215, 100));
+        frame_2->setStyleSheet(QString::fromUtf8(""));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
+        verticalLayout_2 = new QVBoxLayout(frame_2);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        colorSelectLabel = new QLabel(frame_2);
+        colorSelectLabel->setObjectName(QString::fromUtf8("colorSelectLabel"));
+
+        verticalLayout_2->addWidget(colorSelectLabel);
+
+        blueColorRB = new QRadioButton(frame_2);
+        blueColorRB->setObjectName(QString::fromUtf8("blueColorRB"));
+        blueColorRB->setEnabled(true);
+        blueColorRB->setChecked(true);
+
+        verticalLayout_2->addWidget(blueColorRB);
+
+        greenColorRB = new QRadioButton(frame_2);
+        greenColorRB->setObjectName(QString::fromUtf8("greenColorRB"));
+
+        verticalLayout_2->addWidget(greenColorRB);
+
+
+        verticalLayout->addWidget(frame_2);
+
         frame = new QFrame(centralwidget);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setMaximumSize(QSize(1920, 1080));
@@ -1279,6 +1313,9 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "\320\235\320\260\321\207\320\260\321\202\321\214 \320\267\320\260\320\277\320\270\321\201\321\214", nullptr));
+        colorSelectLabel->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\320\276\321\200 \321\206\320\262\320\265\321\202\320\260", nullptr));
+        blueColorRB->setText(QCoreApplication::translate("MainWindow", "\320\241\320\270\320\275\320\270\320\271", nullptr));
+        greenColorRB->setText(QCoreApplication::translate("MainWindow", "\320\227\320\265\320\273\321\221\320\275\321\213\320\271", nullptr));
         opencvFrame->setText(QString());
     } // retranslateUi
 
