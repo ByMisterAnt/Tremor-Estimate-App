@@ -24,13 +24,23 @@ signals:
 
     void goToNext(QString);
 
+    void set_time(double time);
+
+    void selected_color(QString color);
+
 private slots:
 
     void on_pushButton_clicked();
 
     void closeWindow();
 
+    void on_blueColorRB_clicked();
+
+    void on_greenColorRB_clicked();
+
 private:
+
+    double record_time;
 
     Ui::MainWindow *ui;
 

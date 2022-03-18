@@ -37,6 +37,12 @@ signals:
 
     void endRecording();
 
+public slots:
+
+    void time_setup(double time);
+
+    void select_color(QString color);
+
 protected:
 
     void run();
@@ -64,6 +70,9 @@ private:
     QImage  cvMatToQImage( const cv::Mat &inMat );
 
     QPixmap cvMatToQPixmap( const cv::Mat &inMat );
+
+    // Color Range
+    cv::Scalar colorLeftRange = {94, 122, 95}, colorRightRange = {150, 255, 255};
 };
 
 #endif // VIDEOCAPTURE_H

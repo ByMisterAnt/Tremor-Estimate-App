@@ -10,6 +10,27 @@ VideoCapture::VideoCapture(QObject *parent)
     file_path = QFileDialog::getSaveFileName(NULL, tr("Choose a filename to save under"), QString(), tr("TXT(*.txt);;LOG(*.log)"));
 }
 
+
+
+void VideoCapture::time_setup(double time)
+{
+    stopTime = time;
+}
+
+void VideoCapture::select_color(QString color)
+{
+    if (color == "green")
+    {
+        colorLeftRange = {53, 55, 147};
+        colorRightRange = {83, 160, 255};
+    }
+    else
+    {
+        colorLeftRange = {94, 122, 95};
+        colorRightRange = {150, 255, 255};
+    }
+}
+
 void VideoCapture::run()
 {
     if (mVideoCap.isOpened())
@@ -23,7 +44,8 @@ void VideoCapture::run()
 
             cv::cvtColor(mFrame, img, cv::COLOR_BGR2HSV);
 
-            cv::inRange(img, cv::Scalar(94, 122, 95), cv::Scalar(150, 255, 255), mFrame);
+            //cv::inRange(img, cv::Scalar(94, 122, 95), cv::Scalar(150, 255, 255), mFrame);
+            cv::inRange(img, colorLeftRange, colorRightRange, mFrame);
 
             cv::bitwise_and(img, img, result, mFrame);
 
@@ -50,9 +72,12 @@ void VideoCapture::run()
 
                 // 0.179 коэффициент для перевода из пикселей в миллиметры
 
-                X.push_back(std::abs(x - x0) * 0.179);
+                //X.push_back(std::abs(x - x0) * 0.179);
 
-                Y.push_back(std::abs(y - y0) * 0.179);
+                //Y.push_back(std::abs(y - y0) * 0.179);
+                X.push_back(x * 0.179);
+
+                Y.push_back(y * 0.179);
 
                 time.push_back(recTime);
 
@@ -83,7 +108,7 @@ void VideoCapture::run()
         for(int i = 4; i < X.size(); i++)
         {
 
-            out << time[i] << ',' << X[i] << ',' << Y[i] << std::endl;
+            out << time[i] << ',' << std::abs(X[i]-X[i-1]) << ',' << std::abs(Y[i]-Y[i-1]) << ',' << X[i] << ',' << Y[i] << std::endl;
         }
 
         out.close();

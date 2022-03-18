@@ -18,6 +18,8 @@ signals:
 
     void sendToQml(QString message);
 
+    void set_time(int time);
+
 public slots:
 
     void writeTextToFile(QString areasText, QString typeOfFile);
@@ -27,6 +29,7 @@ public slots:
     void openVideoWindow(QString time);
 
     void openNextWindow(QString path);
+
 
 };
 

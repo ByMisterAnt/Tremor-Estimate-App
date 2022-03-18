@@ -10,6 +10,8 @@ Item
 
     visible: True
 
+    property double recTime: 15
+
     Rectangle
     {
         id: mainBackSide
@@ -109,6 +111,8 @@ Item
 
                                         app.openVideoWindow(te.text);
 
+                                        app.set_time(mainScreen.recTime);
+
                                     }
 
                                 }
@@ -186,6 +190,13 @@ Item
 
                                         imageUrl: "qrc:/Images/timer.png"
                                         buttonText: "Установить"
+
+                                        onClicked:
+                                        {
+                                            var filtered_text = te.text.slice(0,te.text.search( "[^:]*$"));
+
+                                            mainScreen.recTime = te.text.replace(filtered_text, "");
+                                        }
                                     }
                                 }
                             }

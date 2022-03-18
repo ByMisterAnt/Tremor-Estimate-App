@@ -1,4 +1,5 @@
 #include "appengine.h"
+#include "mainwindow.h"
 
 appEngine::appEngine(QObject *parent) : QObject(parent)
 {
@@ -42,6 +43,9 @@ void appEngine::openVideoWindow(QString time)
 {
     MainWindow *oCVwindow = new MainWindow;
 
+    connect(this, &appEngine::set_time, oCVwindow, &MainWindow::set_time);
+
+    oCVwindow->setWindowTitle("TEA Record window");
     oCVwindow->show();
 
     connect(oCVwindow, &MainWindow::goToNext, this, &appEngine::openNextWindow);
